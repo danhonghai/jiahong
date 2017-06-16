@@ -1,0 +1,413 @@
+@import "base.less";
+.fl {
+    float: left
+}
+.fr {
+    float: right
+}
+.justify {
+    text-align: justify
+}
+img {
+    max-width: 100%;
+}
+
+/* 菜单栏图片配置 */
+.icontab_borrow{
+  background: url(../img/icon_borrow.png) center no-repeat;
+  background-size: 30%;
+}
+.icontab_borrow_outline{
+  background: url(../img/icon_borrow_outline.png) center no-repeat;
+  background-size: 30%;
+}
+.icontab_free{
+  background: url(../img/icon_free.png) center no-repeat;
+  background-size: 30%;
+}
+.icontab_free_outline{
+  background: url(../img/icon_free_outline.png) center no-repeat;
+  background-size: 30%;
+}
+.icontab_authenticate{
+  background: url(../img/icon_auth.png) center no-repeat;
+  background-size: 30%;
+}
+.icontab_authenticate_outline{
+  background: url(../img/icon_auth_outline.png) center no-repeat;
+  background-size: 30%;
+}
+.icontab_my{
+  background: url(../img/icon_my.png) center no-repeat;
+  background-size: 30%;
+}
+.icontab_my_outline{
+  background: url(../img/icon_my_outline.png) center no-repeat;
+  background-size: 30%;
+}
+
+.icon_location{
+  display: inline-block;
+  background: url(../img/icon_location.png) center no-repeat;
+  width: 0.33rem;
+  height: 0.37rem;
+}
+
+.icon_location2{
+  display: inline-block;
+  background: url(../img/icon_location2.png) center no-repeat;
+  width: 0.2rem;
+  height: 0.3rem;
+  background-size: contain;
+}
+
+.icon_dot{
+  display: inline-block;
+  background: #FFFFFF;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.range input{
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffdac3), color-stop(100%, #ffdac3));
+    background: linear-gradient(to right, #ffdac3 0%, #ffdac3 100%);
+    background-size: 99% 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+input[type=range]::-webkit-slider-thumb{
+    background-color: #ff7d2e;
+}
+
+.btn{
+    margin: 0 auto;
+    width: 80%;
+}
+.btn90{
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* 首页 */
+.borrow_wrap{
+  background: url(../img/borrow_bg.png) left bottom no-repeat;
+  background-size: cover;
+  .title{
+      margin-top: 30px;
+      font-size: 0.24rem;
+      color: @color-ff7d2e;
+      text-align: center;
+  }
+  .location{
+      margin-top: 33px;
+      font-size: 0.24rem;
+      color: @color-ff7d2e;
+      text-align: center;
+      span{
+        display: inline-block;
+        position: relative;
+        top:-0.12rem;
+        margin-left: 0.15rem;
+      }
+  }
+  .borrow_center{
+      margin: 0.5rem auto 0.4rem;
+      padding-top: 0.6rem;
+      background: url(../img/borrow_center.png) center no-repeat;
+      background-size: cover;
+      width: 2.25rem;
+      height: 2.25rem;
+      color:@color-ff7d2e;
+      text-align:center;
+      .borrow_top{
+          font-size:0.16rem;
+      }
+      .borrow_main{
+          margin-top: 0.4rem;
+          font-size:0.4rem;
+      }
+      .big_money{
+          margin-top: 0.25rem;
+          font-size: 0.4rem;
+          span{
+              font-size: 0.7rem;
+          }
+      }
+  }
+  .borrow_prompt{
+      font-size:0.16rem;
+      color:#f58624;
+      text-align:center;
+      span{
+        margin-left: 0.05rem;
+        color:#ffb36f;
+      }
+  }
+  .borrow_notivce{
+      .notivce{
+          font-size:0.16rem;
+          color:#ff7d2e;
+      }
+  }
+}
+
+/* 借款 */
+.loan_top{
+    background: url(../img/loan.png) left bottom no-repeat;
+    background-size: cover;
+    padding: 0.1rem 0.15rem 0.1rem 0.15rem;
+    .loan_bank{
+        background: url(../img/bank.png) left top no-repeat;
+        background-size: 100%;
+        padding: 8% 0 0.1rem 0.1rem;
+        border-radius: 10px;
+        .bank_title{
+            padding: 0;
+            .col:last-child span{
+                border-bottom:1px solid #999999;
+                color:#999999;
+                font-size: 0.12rem;
+            }
+        }
+        .loan_limit{
+            margin-top: 6%;
+            .col{
+                text-align: right;
+                color: #dbdbdb;
+                height: 5%;
+            }
+        }
+        .loan_limitNum{
+            .col{
+                padding: 0;
+                text-align: right;
+                color: @color;
+                font-size: 0.18rem;
+                padding-right: 5px;
+                height: 5%;
+            }
+        }
+        .bank_num{
+            margin-top: 2%;
+            .col{
+                font-size:0.28rem;
+                color:#333333;
+                letter-spacing:1px;
+            }
+        }
+        .bank_date{
+            padding: 0;
+            .col{
+                text-transform: uppercase;
+            }
+        }
+    }
+    .loan_notivce{
+      padding: 0;
+      .col:first-child{
+          padding: 0;
+          border-right: 1px solid #ffffff;
+          line-height: 0.44rem;
+      }
+      .col:last-child{
+          margin-left: 5px;
+          background: rgba(255, 255, 255, 0.5);
+          border-radius: 5px;
+          text-align: center;
+          span{
+              position: relative;
+              top: -0.1rem;
+              font-size: 0.16rem;
+              color:@color-ff7d2e;
+          }
+      }
+    }
+}
+.loan_main{
+    padding-top: 12px;
+    text-align: center;
+    color: #999999;
+    .amount{
+        margin-top: 10px;
+        color:#ff7d2e;
+        font-size: 30px;
+    }
+    .rang_scope{
+        margin-top: -23px;
+        font-size: 16px;
+        .col:first-child{
+            padding-left: 20px;
+            text-align: left;
+        }
+        .col:last-child{
+            padding-right: 20px;
+            text-align: right;
+        }
+    }
+    .loan_row{
+        .col:first-child{
+            padding-left: 20px;
+            text-align: left;
+            font-size: 18px;
+            color:#666666;
+            line-height: 0.45rem;
+        }
+        .col:last-child{
+            text-align: right;
+            line-height: 0.45rem;
+            .button{
+                min-height: 0.3rem;
+                padding: 0;
+                width: 30%;
+            }
+            span{
+                color: #ff7d2e;
+                font-size: 18px;
+            }
+        }
+    }
+    .loan_prompt{
+      font-size:0.16rem;
+      color:#d70101;
+      text-align:center;
+      span{
+        margin-left: 0.05rem;
+        color:#d70101;
+      }
+  }
+}
+.popup-container .popup{
+    width: 290px;
+    border-radius: 10px;
+}
+.popup-head{
+    border-bottom: 1px solid #dbdbdb;
+}
+.loan_modal{
+    color: #666;
+    .col:first-child{
+        text-align: center;
+    }
+    .col:last-child{
+        text-align: right;
+    }
+}
+.loan_modal_info{
+    width: 90%;
+    margin: 0 auto;
+    p{
+        margin: 0;
+        color:#970000;
+        text-align: justify;
+    }
+}
+
+/* 认证 */
+.auth_top{
+    padding-top: 0.3rem;
+    padding-bottom: 0.15rem;
+    background-color: #ff7d2e;
+    color: #ffffff;
+    .auth_limit{
+        font-size: 0.3rem;
+    }
+    p{
+        &:before{
+            content: '';
+            display: block;
+            border-top: 3px solid #ffffff;
+            width: 0.4rem;
+            margin: 0.1rem auto;
+        }
+    }
+}
+.auth_main{
+    .row{
+        padding: 0;
+        border-top: 1px solid #dbdbdb;
+        .col{
+            border-right: 1px solid #dbdbdb;
+            &:last-child{
+                border-right: none;
+            }
+            .no_auth{
+                color:#dbdbdb;
+            }
+            .is_auth{
+                color:#7ed321;
+            }
+            img{
+                width: 0.7rem;
+            }
+        }
+    }
+}
+/* 身份认证 */
+.add_idcard{
+    img{
+        width: 0.6rem;
+        vertical-align: middle;
+    }
+    input[type="radio"]{
+        margin: 0;
+        padding: 0;
+        font-size: 24px;
+        color:#26A6F8;
+    }
+}
+
+.zhimaContent{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width:100%;
+    background-color:#fff;
+    img{
+      width: 40%;
+    }
+    p{
+        width:80%;
+        margin:0 auto;
+        text-align:justify;
+        color:#666666;
+        text-indent: 2em;
+    }
+}
+.my_border{
+    border: 1px solid #37df72;
+    display: inline-block;
+    border-radius: 8px;
+    padding: 1px 7px;
+    color:#37df72;
+}
+.my_list{
+    .icon img{
+        width: 0.4rem;
+    }
+}
+.ion-ios-arrow-right{
+    color: #999;
+}
+.help_top{
+    .col{
+        font-size: 0.16rem;
+        img{
+            width: 0.8rem;
+        }
+        &:first-child{
+            border-right: 1px solid #dbdbdb;
+        }
+    }
+}
+.detail{
+    p{
+        padding: 10px 20px;
+        text-indent: 2em;
+        line-height: .2rem;
+        text-align: justify;
+        color:#666;
+    }
+}

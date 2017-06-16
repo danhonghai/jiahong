@@ -1,0 +1,89 @@
+<ion-view view-title="借款">
+    <ion-content>
+        <div class="loan_top">
+          <div class="loan_bank">
+              <div class="row bank_title">
+                  <div class="col col-30 padding0 csfff font-size13">嘉鸿<i class="icon_dot"></i>现金卡</div>
+                  <div class="col padding0"><span>资料真实即可申请，快至10分钟到账<span></div>
+              </div>
+              <div class="row loan_limit padding0">
+                  <div class="col col-33 col-offset-67">可借额度</div>
+              </div>
+              <div class="row loan_limitNum padding0">
+                  <div class="col col-50 col-offset-50">1,000～10,000</div>
+              </div>
+              <div class="row bank_num padding0">
+                  <div class="col">6222  8888  ****  8888</div>
+              </div>
+              <div class="row bank_date">
+                  <div class="col">jiahong Credit  <span>30/05/2017</span></div>
+              </div>
+          </div>
+          <div class="row loan_notivce">
+              <div class="col col-75 csfff">尾号9808，刚刚借款10,000.00元</div>
+              <div class="col"><i class="icon icon_location2"></i><span>杭州</span></div>
+          </div>
+        </div>
+        <div class="loan_main">
+            <span>借款金额</span>
+            <p class="amount" ng-bind="rangeValue"></p>
+            <div class="range">
+                <input type="range" name="volume" min="500" max="5000" step="100" ng-init="rangeValue='500'" ng-model="rangeValue">
+            </div>
+            <div class="row rang_scope">
+                <div class="col">500</div>
+                <div class="col">5000</div>
+            </div>
+            <div class="row loan_row" style="border-bottom:1px solid #dbdbdb;">
+                <div class="col col-33">借款期限</div>
+                <div class="col">
+                    <button class="button button-ff7d2e">7天</button>
+                    <button style="border-color:#999;" class="button button-light">14天</button>
+                    <button style="border-color:#999;" class="button button-light">1月</button>
+                </div>
+            </div>
+            <div class="row loan_row">
+                <div class="col col-33">到账金额</div>
+                <div class="col"><span>2,700.00</span></div>
+            </div>
+            <div class="row loan_row">
+                <div class="col col-33">综合费用</div>
+                <div class="col"><span>300.00</span></div>
+            </div>
+            <div class="btn">
+                <button style="border-radius: 20px;" class="button button-block button-ff7d2e" ng-click="showModal()">立即还款</button>
+            </div>
+            <div class="loan_prompt icon ion-alert-circled"><span>暂不为学生服务</span></div>
+        </div>
+    </ion-content>
+</ion-view>
+
+<script id="templates/loan_modal.html" type="text/ng-template">
+    <div class="row loan_modal">
+        <div class="col">平台服务费</div>
+        <div class="col">60.00元</div>
+    </div>
+    <div class="row loan_modal">
+        <div class="col">信息认证费</div>
+        <div class="col">30.00元</div>
+    </div>
+    <div class="row loan_modal">
+        <div class="col">风控服务费</div>
+        <div class="col">60.00元</div>
+    </div>
+    <div class="row loan_modal">
+        <div class="col">风险准备金</div>
+        <div class="col">150.00元</div>
+    </div>
+    <div class="row loan_modal">
+        <div class="col">合计</div>
+        <div class="col">300.00元</div>
+    </div>
+    <div class="btn">
+        <button style="border-radius: 20px;" class="button button-block button-ff7d2e" ng-click="closeModal()">知道了</button>
+    </div>
+    <div class="loan_modal_info">
+        <p>1. 综合费用将在借款时一次性收取</p>
+        <p>2. 利息将在还款时收取，请在交易完成后于订单页的借款协议查看具体信息（年华利率约6%～9.5%，取决于为您撮合的借款人）</p>
+    </div>
+</script>
