@@ -37,3 +37,35 @@ angular.module('my.controllers', [])
   .controller('MymsgCtrl', ['$scope', function($scope){
       console.log("MymsgCtrl");
   }])
+  .controller('InterestfreeCtrl', ['$scope', function($scope){
+      console.log("InterestfreeCtrl");
+      $scope.tabs = [
+        {name: "可使用",success: true},
+        {name: "已使用",success: false}
+      ];
+
+      $scope.clickTab = function(index){
+          for (var i = 0, len = $scope.tabs.length; i < len; i++) {
+              if(i == index){
+                  $scope.tabs[i].success = true;
+              }else{
+                  $scope.tabs[i].success = false;
+              }
+          };
+      }
+  }])
+  .controller('UsersettingCtrl', ['$scope', function($scope){
+      console.log("UsersettingCtrl");
+  }])
+  .controller('MobilemangeCtrl', ['$scope', function($scope){
+      console.log("MobilemangeCtrl");
+  }])
+  .controller('UpdatemobileCtrl', ['$scope', function($scope){
+      console.log("UpdatemobileCtrl");
+  }])
+  .controller('ForgetpassCtrl', ['$scope', function($scope){
+      console.log("ForgetpassCtrl");
+  }])
+  .controller('UpdatepassCtrl', ['$scope', function($scope){
+      console.log("UpdatepassCtrl");
+  }])

@@ -125,6 +125,37 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             templateUrl: 'templates/my/mymsg.html',
             controller: 'MymsgCtrl'
         })
+        .state('interestfree', {//免息券
+            url: '/interestfree',
+            templateUrl: 'templates/my/interestfree.html',
+            controller: 'InterestfreeCtrl'
+        })
+        .state('usersetting', {//用户设置
+            url: '/usersetting',
+            templateUrl: 'templates/my/usersetting.html',
+            controller: 'UsersettingCtrl'
+        })
+        .state('mobilemange', {//绑定手机
+            url: '/mobilemange',
+            templateUrl: 'templates/my/mobilemange.html',
+            controller: 'MobilemangeCtrl'
+        })
+        .state('updatemobile', {//修改绑定手机
+            url: '/updatemobile',
+            templateUrl: 'templates/my/updatemobile.html',
+            controller: 'UpdatemobileCtrl'
+        })
+        .state('forgetpass', {//忘记密码／忘记交易密码
+            url: '/forgetpass',
+            templateUrl: 'templates/my/forgetpass.html',
+            controller: 'ForgetpassCtrl'
+        })
+        .state('updatepass', {//修改密码／交易密码
+            url: '/updatepass',
+            templateUrl: 'templates/my/updatepass.html',
+            controller: 'UpdatepassCtrl'
+        })
+
 
     $urlRouterProvider.otherwise('/tab/borrow');
 });
