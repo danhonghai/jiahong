@@ -19,8 +19,8 @@
 .c218ac6 {
   color: #218ac6 !important;
 }
-.cffcdae {
-  color: #ffcdae !important;
+.c0099ff {
+  color: #0099ff !important;
 }
 .cff7d2e {
   color: #ff7d2e !important;
@@ -82,8 +82,8 @@ html {
 .white-space {
   white-space: normal!important;
 }
-.padding10 {
-  padding: 0.1rem;
+.padding20 {
+  padding: 0.2rem;
 }
 .padding0 {
   padding: 0 !important;
@@ -192,8 +192,8 @@ a {
 .c218ac6 {
   color: #218ac6 !important;
 }
-.cffcdae {
-  color: #ffcdae !important;
+.c0099ff {
+  color: #0099ff !important;
 }
 .cff7d2e {
   color: #ff7d2e !important;
@@ -255,8 +255,8 @@ html {
 .white-space {
   white-space: normal!important;
 }
-.padding10 {
-  padding: 0.1rem;
+.padding20 {
+  padding: 0.2rem;
 }
 .padding0 {
   padding: 0 !important;
@@ -726,41 +726,12 @@ input[type=range]::-webkit-slider-thumb {
   text-align: justify;
   color: #666;
 }
-.free_tabs {
-  display: flex;
+.tabs .tab-item {
+  max-width: none;
 }
-.free_tabs a {
-  flex: 1;
-  height: 42px;
-  line-height: 40px;
-  text-align: center;
-  color: #666;
-  font-size: 18px;
-}
-.free_tabs a.active {
+.tabs .tab-item.active {
   color: #ff804a;
   border-bottom: 2px solid #ff804a;
-}
-.free_content {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-.free_content .free_item {
-  margin-top: 20px;
-  padding: 10px;
-  border-radius: 10px;
-}
-.free_content .free_item img {
-  float: left;
-  width: 0.8rem;
-}
-.free_content .free_item .item_text {
-  margin-left: 0.8rem;
-  min-height: 0.8rem;
-  padding-top: 0.18rem;
-}
-.free_content .free_item .item_text h2 {
-  font-size: 18px;
 }
 .btn_hqyzm {
   margin-right: 25px;

@@ -3762,7 +3762,7 @@ a.subdued {
     border-radius: 0;
     border-color: #d1d3d6;
     background-color: transparent;
-    color: #007aff;
+    color: #333333;
     font-size: 21px; }
     .action-sheet .button:hover {
       color: #007aff; }

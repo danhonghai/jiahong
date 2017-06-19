@@ -1,80 +1,19 @@
 <ion-view view-title="免息券">
-    <div class="free_tabs" style="background: none;">  
-        <a class="" ng-repeat="tab in tabs" ng-class="{true:'active',false:''}[tab.success]" ng-bind="tab.name" ng-click="clickTab($index)"></a>  
+    <div class="tabs light-bg" style="top:0;">
+        <a class="tab-item" ng-repeat="tab in tabs" ng-class="{true:'active',false:''}[tab.success]" ng-bind="tab.name" ng-click="clickTab($index)"></a>
     </div>
-    <ion-content class="has-header stable-bg">
-    	<div class="free_content" ng-if="tabs[0].success">
-    		<div class="free_item light-bg"> 
-    			<img src="img/free.png" alt="免息券">
-    			<div class="item_text">
-	    			<h2>7日借款免息券</h2>
-		            <p>可用于借款期限为1日的还款免息</p>
-	            </div>
-    		</div>
-    		<div class="free_item light-bg"> 
-    			<img src="img/free.png" alt="免息券">
-    			<div class="item_text">
-	    			<h2>7日借款免息券</h2>
-		            <p>可用于借款期限为1日的还款免息</p>
-	            </div>
-    		</div>
-    		<div class="free_item light-bg"> 
-    			<img src="img/free.png" alt="免息券">
-    			<div class="item_text">
-	    			<h2>7日借款免息券</h2>
-		            <p>可用于借款期限为1日的还款免息</p>
-	            </div>
-    		</div>
-    		<div class="free_item light-bg"> 
-    			<img src="img/free.png" alt="免息券">
-    			<div class="item_text">
-	    			<h2>7日借款免息券</h2>
-		            <p>可用于借款期限为1日的还款免息</p>
-	            </div>
-    		</div>
-    		<div class="free_item light-bg"> 
-    			<img src="img/free.png" alt="免息券">
-    			<div class="item_text">
-	    			<h2>7日借款免息券</h2>
-		            <p>可用于借款期限为1日的还款免息</p>
-	            </div>
-    		</div>
-    	</div>
-    	<div class="free_content" ng-if="tabs[1].success">
-    		<div class="free_item light-bg"> 
-    			<img src="img/free.png" alt="免息券">
-    			<div class="item_text">
-	    			<h2>7日借款免息券</h2>
-		            <p>已使用</p>
-	            </div>
-    		</div>
-    		<div class="free_item light-bg"> 
-    			<img src="img/free.png" alt="免息券">
-    			<div class="item_text">
-	    			<h2>7日借款免息券</h2>
-		            <p>可用于借款期限为1日的还款免息</p>
-	            </div>
-    		</div>
-    		<div class="free_item light-bg"> 
-    			<img src="img/free.png" alt="免息券">
-    			<div class="item_text">
-	    			<h2>7日借款免息券</h2>
-		            <p>可用于借款期限为1日的还款免息</p>
-	            </div>
-    		</div>
-    		<div class="free_item light-bg"> 
-    			<img src="img/free.png" alt="免息券">
-    			<div class="item_text">
-	    			<h2>7日借款免息券</h2>
-		            <p>可用于借款期限为1日的还款免息</p>
-	            </div>
-    		</div>
-    		<div class="free_item light-bg"> 
-    			<img src="img/free.png" alt="免息券">
-    			<div class="item_text">
-	    			<h2>7日借款免息券</h2>
-		            <p>可用于借款期限为1日的还款免息</p>
-	            </div>
+    <ion-content class="has-header stable-bg padding">
+    	<div class="list">
+    		<div class="item light-bg margin-top10 padding0" style="border-radius:10px;" ng-repeat="data in [1,2,3,4,5,6,7,8]">
+          <div class="row">
+              <div class="col col-25">
+                  <img src="img/free.png" alt="免息券">
+              </div>
+              <div class="col">
+                  <h2 style="font-size:18px;margin-top: 0.18rem;">7日借款免息券</h2>
+                  <p>可用于借款期限为1日的还款免息</p>
+              </div>
+          </div>
     		</div>
     	</div>
     </ion-content>

@@ -66,7 +66,7 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             templateUrl: 'templates/authenticate/idcard.html',
             controller: 'IdcardCtrl'
         })
-        .state('bankmange', {//银行卡
+        .state('bankmange', {//银行卡认证
             url: '/bankmange',
             templateUrl: 'templates/authenticate/bankmange.html',
             controller: 'BankmangeCtrl'
@@ -130,6 +130,21 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             templateUrl: 'templates/my/interestfree.html',
             controller: 'InterestfreeCtrl'
         })
+        .state('loanlist', {//借款记录
+            url: '/loanlist',
+            templateUrl: 'templates/my/loanlist.html',
+            controller: 'LoanlistCtrl'
+        })
+        .state('repaymentahead', {//提前还款
+            url: '/repaymentahead',
+            templateUrl: 'templates/my/repaymentahead.html',
+            controller: 'RepaymentaheadCtrl'
+        })
+        .state('repayment', {//还款
+            url: '/repayment',
+            templateUrl: 'templates/my/repayment.html',
+            controller: 'RepaymentCtrl'
+        })
         .state('usersetting', {//用户设置
             url: '/usersetting',
             templateUrl: 'templates/my/usersetting.html',
@@ -154,6 +169,41 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             url: '/updatepass',
             templateUrl: 'templates/my/updatepass.html',
             controller: 'UpdatepassCtrl'
+        })
+        .state('bankcard', {//银行卡管理
+            url: '/bankcard',
+            templateUrl: 'templates/my/bankcard.html',
+            controller: 'BankcardCtrl'
+        })
+        .state('addbankcard', {//添加银行卡
+            url: '/addbankcard',
+            templateUrl: 'templates/my/addbankcard.html',
+            controller: 'AddbankcardCtrl'
+        })
+        .state('contract', {//模版合同协议
+            url: '/contract',
+            templateUrl: 'templates/my/contract.html',
+            controller: 'ContractCtrl'
+        })
+        .state('aboutus', {//关于我们
+            url: '/aboutus',
+            templateUrl: 'templates/my/aboutus.html',
+            controller: 'AboutusCtrl'
+        })
+        .state('login', {//登录
+            url: '/login',
+            templateUrl: 'templates/my/login.html',
+            controller: 'LoginCtrl'
+        })
+        .state('password', {//密码
+            url: '/password',
+            templateUrl: 'templates/my/password.html',
+            controller: 'PasswordCtrl'
+        })
+        .state('register', {//注册
+            url: '/register',
+            templateUrl: 'templates/my/register.html',
+            controller: 'RegisterCtrl'
         })
 
 
