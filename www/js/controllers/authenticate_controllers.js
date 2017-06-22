@@ -1,10 +1,34 @@
 angular.module('authenticate.controllers', [])
-
     .controller('AuthenticateCtrl', ['$scope', function($scope){
         console.log("AuthenticateCtrl");
     }])
-    .controller('IdcardCtrl', ['$scope', function($scope){
+    .controller('IdcardCtrl', ['$scope','$ionicActionSheet', function($scope,$ionicActionSheet){
         console.log("IdcardCtrl");
+        $scope.radioObj = [{
+            id:'male',
+            value:0,
+            name:'男',
+            model:'formData.sex'
+        },{
+            id:'female',
+            value:1,
+            name:'女',
+            model:'formData.sex'
+        }]
+        // 点击按钮触发，或一些其他的触发条件
+        $scope.show = function() {
+            // 显示操作表
+            $ionicActionSheet.show({
+                buttons: [
+                    { text: '拍照' },
+                    { text: '从相册选择' },
+                ],
+                cancelText: '取消',
+                buttonClicked: function(index) {
+                    return true;
+                }
+            });
+        };
     }])
     .controller('BankmangeCtrl', ['$scope', function($scope){
         console.log("BankmangeCtrl");

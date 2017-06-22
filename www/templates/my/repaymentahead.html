@@ -19,3 +19,21 @@
         </div>
     </ion-content>
 </ion-view>
+
+<script id="templates/pass_modal.html" type="text/ng-template">
+    <form class="pass-form" name="pass_form" novalidate pass-form>
+      <label for="pass">
+        <input class="pass-input Jpass" type="tel" name="pass" id="pass" autocomplete="off" ng-model="pass" required maxlength="6" />
+
+        <div class="pass-border-box">
+          <span class="pass-border"><i>dot</i></span>
+          <span class="pass-border"><i>dot</i></span>
+          <span class="pass-border"><i>dot</i></span>
+          <span class="pass-border"><i>dot</i></span>
+          <span class="pass-border"><i>dot</i></span>
+          <span class="pass-border"><i>dot</i></span>
+          <div class="faguang Jfaguang"></div>
+        </div>
+      </label>
+    </form>
+</script>

@@ -1,4 +1,27 @@
-angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controllers', 'my.controllers'])
+angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controllers', 'my.controllers', 'free.controllers'])
+    .directive('definedRadio',[function(){
+        return {
+            restrict: 'E',
+            scope:{
+                radioObj : '=radioObject',
+            },
+            template: '<input type="radio" name="definedRadio" ng-repeat="item in radioObj" id="{{item.id}}" checked  ng-model="formData.sex">'
+                      +'<label ng-repeat="item in radioObj" for="{{item.id}}" class="label_radio"><i class="icon ion-ios-circle-filled"></i>{{item.name}}</label>',
+            link: function($scope, elem, attr){debugger;
+                /*var maleDom=angular.element(elem[0].querySelector('#male'));//男
+                var femaleDom=angular.element(elem[0].querySelector('#female'));//女
+                maleDom.on('click', function(e){console.log("1");
+                    femaleDom.next('.label_radio').children('.icon').removeClass('ion-ios-circle-filled').addClass('ion-ios-circle-outline');
+                    maleDom.next('.label_radio').children('.icon').removeClass('ion-ios-circle-outline').addClass('ion-ios-circle-filled');
+                });
+
+                femaleDom.on('click', function(e){console.log("2");
+                    maleDom.next('.label_radio').children('.icon').removeClass('ion-ios-circle-filled').addClass('ion-ios-circle-outline');
+                    femaleDom.next('.label_radio').children('.icon').removeClass('ion-ios-circle-outline').addClass('ion-ios-circle-filled');
+                });*/
+            }
+        }
+    }])
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -51,6 +74,15 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             url: '/loan',
             templateUrl: 'templates/borrow/loan.html',
             controller: 'LoanCtrl'
+        })
+        .state('tab.free',{//免息
+          url:'/free',
+          views:{
+              'tab-free':{
+                  templateUrl:'templates/free/tab_free.html',
+                  controller:'FreeCtrl'
+              }
+          }
         })
         .state('tab.authenticate',{//认证
           url:'/authenticate',
@@ -205,7 +237,12 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             templateUrl: 'templates/my/register.html',
             controller: 'RegisterCtrl'
         })
+        .state('inviterewards', {//邀请奖励
+            url: '/inviterewards',
+            templateUrl: 'templates/my/inviterewards.html',
+            controller: 'InviterewardsCtrl'
+        })
 
 
-    $urlRouterProvider.otherwise('/tab/borrow');
+    $urlRouterProvider.otherwise('/tab/my');
 });

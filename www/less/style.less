@@ -12,6 +12,23 @@ img {
     max-width: 100%;
 }
 
+.label_radio{
+    margin-left: 0.14rem;
+    font-size: 16px;
+    .icon{
+        position: relative;
+        top:0.04rem;
+        margin-right: 10px;
+        font-size: 25px;
+    }
+    .ion-ios-circle-filled{
+        color: #4F8EF7;
+    }
+    .ion-ios-circle-outline{
+        color:#dbdbdb;
+    }
+}
+
 /* 菜单栏图片配置 */
 .icontab_borrow{
   background: url(../img/icon_borrow.png) center no-repeat;
@@ -61,6 +78,14 @@ img {
   background-size: contain;
 }
 
+.icon_zh{
+  display: inline-block;
+  background: url(../img/icon_zh.png) center no-repeat;
+  width: 0.2rem;
+  height: 0.2rem;
+  background-size: contain;
+}
+
 .icon_dot{
   display: inline-block;
   background: #FFFFFF;
@@ -83,6 +108,11 @@ input[type=range]::-webkit-slider-thumb{
     background-color: #ff7d2e;
 }
 
+input[type="radio"]{
+    position: absolute;
+    left: -9999px;
+}
+
 .btn{
     margin: 0 auto;
     width: 80%;
@@ -94,16 +124,16 @@ input[type=range]::-webkit-slider-thumb{
 
 /* 首页 */
 .borrow_wrap{
-  background: url(../img/borrow_bg.png) left bottom no-repeat;
+   background: url(../img/borrow_bg.png) left bottom no-repeat;
   background-size: cover;
   .title{
-      margin-top: 30px;
+      margin-top: 5%;
       font-size: 0.24rem;
       color: @color-ff7d2e;
       text-align: center;
   }
   .location{
-      margin-top: 33px;
+      margin-top: 6%;
       font-size: 0.24rem;
       color: @color-ff7d2e;
       text-align: center;
@@ -115,7 +145,7 @@ input[type=range]::-webkit-slider-thumb{
       }
   }
   .borrow_center{
-      margin: 0.5rem auto 0.4rem;
+      margin: 0.4rem auto 0.4rem;
       padding-top: 0.6rem;
       background: url(../img/borrow_center.png) center no-repeat;
       background-size: cover;
@@ -148,6 +178,8 @@ input[type=range]::-webkit-slider-thumb{
       }
   }
   .borrow_notivce{
+      position: absolute;
+      bottom: 5px;
       .notivce{
           font-size:0.16rem;
           color:#ff7d2e;
@@ -284,9 +316,6 @@ input[type=range]::-webkit-slider-thumb{
     width: 290px;
     border-radius: 10px;
 }
-.popup-head{
-    border-bottom: 1px solid #dbdbdb;
-}
 .loan_modal{
     color: #666;
     .col:first-child{
@@ -341,7 +370,7 @@ input[type=range]::-webkit-slider-thumb{
                 color:#7ed321;
             }
             img{
-                width: 0.7rem;
+                width: 0.6rem;
             }
         }
     }
@@ -351,12 +380,6 @@ input[type=range]::-webkit-slider-thumb{
     img{
         width: 0.6rem;
         vertical-align: middle;
-    }
-    input[type="radio"]{
-        margin: 0;
-        padding: 0;
-        font-size: 24px;
-        color:#26A6F8;
     }
 }
 
@@ -429,3 +452,12 @@ input[type=range]::-webkit-slider-thumb{
     border-radius: 20px;
     background: #fff;
 }
+/* 6位密码输入框 */
+.pass-form{position:relative;min-height: 36px;width: 223px;margin: 0 auto;}
+.pass-form .pass-input{position:absolute;top:0;left: -150px;height:36px;line-height:36px;font-size:0px;color:#000;opacity:0;box-shadow:none;}
+.pass-form .pass-border-box{position:absolute;top:0;font-size:0}
+.pass-form .pass-border-box .faguang{position:absolute;top:0;left:0;z-index:9;box-shadow:0 0 8px rgba(60,100,100,.6);width:36px;height:36px;background:#fff;opacity:0}
+.pass-form .pass-border-box .pass-border{display:inline-block;position:relative;z-index:10;width:36px;height:36px;border:solid 1px #dcdcdc;border-left:none;-webkit-box-sizing:border-box;box-sizing:border-box}
+.pass-form .pass-border-box .pass-border:first-child{border-left:solid 1px #dcdcdc}
+/* .pass-form .pass-border-box .pass-border.active{background:url(../img/icon_guangbiao.gif) no-repeat center center #fff} */
+.pass-form .pass-border-box .pass-border i{display:block;margin:0 auto;margin-top:12px;width:10px;height:10px;border-radius:100%}

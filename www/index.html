@@ -24,11 +24,16 @@
     <script src="js/controllers/borrow_controllers.js"></script>
     <script src="js/controllers/authenticate_controllers.js"></script>
     <script src="js/controllers/my_controllers.js"></script>
+    <script src="js/controllers/free_controllers.js"></script>
 </head>
 <body ng-app="starter">
 <div ui-sref="error" ng-if="stateonline" style="width: 100%; height: 44px; line-height: 44px; position: fixed; background: rgba(0,0,0,0.6); z-index: 9999; padding: 0 15px; color: #fff; font-size: 14px;">
         <i class="icon ion-social-rss" style="color:#f00; margin-right: 10px;"></i>网络请求失败，请检查您的网络设置
     </div>
+  <!-- <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+  </ion-nav-bar> -->
 	<ion-nav-view></ion-nav-view>
 </body>
 </html>
