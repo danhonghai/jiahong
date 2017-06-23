@@ -17,12 +17,11 @@
             <div class="item padding0">
                 <div class="row padding0">
                     <div class="col col-33"><span class="input-label"  style="padding-left:11px;">按揭与否</span></div>
-                    <div class="col">
-                        <defined-radio radio-object="radioObj" ></defined-radio>
-                        <!-- <input type="radio" name="sex" id="male" checked  ng-model="formData.sex">
-                        <label for="male" class="label_radio"><i class="icon ion-ios-circle-filled"></i>男</label>
-                        <input type="radio" name="sex" id="female"  ng-model="formData.sex">
-                        <label for="female" class="label_radio"><i class="icon ion-ios-circle-outline"></i>女</label> -->
+                    <div class="col" defined-radio>
+                        <input type="radio" name="mortgage" id="noMort" checked  ng-model="formData.mortgage">
+                        <label for="noMort" class="label_radio"><i class="icon ion-ios-circle-filled"></i>无</label>
+                        <input type="radio" name="mortgage" id="mort"  ng-model="formData.mortgage">
+                        <label for="mort" class="label_radio"><i class="icon ion-ios-circle-outline"></i>有</label>
                     </div>
                 </div>
             </div>

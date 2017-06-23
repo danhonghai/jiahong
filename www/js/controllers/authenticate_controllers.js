@@ -4,17 +4,6 @@ angular.module('authenticate.controllers', [])
     }])
     .controller('IdcardCtrl', ['$scope','$ionicActionSheet', function($scope,$ionicActionSheet){
         console.log("IdcardCtrl");
-        $scope.radioObj = [{
-            id:'male',
-            value:0,
-            name:'男',
-            model:'formData.sex'
-        },{
-            id:'female',
-            value:1,
-            name:'女',
-            model:'formData.sex'
-        }]
         // 点击按钮触发，或一些其他的触发条件
         $scope.show = function() {
             // 显示操作表

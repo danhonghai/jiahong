@@ -28,8 +28,11 @@
             <div class="item padding0">
                 <div class="row padding0">
                     <div class="col col-33"><span class="input-label"  style="padding-left:11px;">性别</span></div>
-                    <div class="col">
-                        <defined-radio radio-object="radioObj" ></defined-radio>
+                    <div class="col" defined-radio >
+                        <input type="radio" name="sex" id="male" checked  ng-model="formData.sex">
+                        <label for="male" class="label_radio"><i class="icon ion-ios-circle-filled"></i>男</label>
+                        <input type="radio" name="sex" id="female"  ng-model="formData.sex">
+                        <label for="female" class="label_radio"><i class="icon ion-ios-circle-outline"></i>女</label>
                     </div>
                 </div>
             </div>
