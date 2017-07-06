@@ -218,6 +218,16 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
                 templateUrl: 'templates/my/inviterewards.html',
                 controller: 'InviterewardsCtrl'
             })
+            .state('historybill', {//历史账单
+                url: '/historybill',
+                templateUrl: 'templates/my/historybill.html',
+                controller: 'HistorybillCtrl'
+            })
+            .state('historybilldetail', {//历史账单详情
+                url: '/historybilldetail',
+                templateUrl: 'templates/my/historybilldetail.html',
+                controller: 'HistorybilldetailCtrl'
+            })
 
 
         $urlRouterProvider.otherwise('/tab/my');

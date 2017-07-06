@@ -231,4 +231,10 @@ angular.module('my.controllers', [])
   .controller('InviterewardsCtrl', ['$scope', function($scope){
       console.log("InviterewardsCtrl");
   }])
+  .controller('HistorybillCtrl', ['$scope', function($scope){
+      console.log("HistorybillCtrl");
+  }])
+  .controller('HistorybilldetailCtrl', ['$scope', function($scope){
+      console.log("HistorybilldetailCtrl");
+  }])
 
