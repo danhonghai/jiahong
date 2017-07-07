@@ -377,6 +377,15 @@ img {
 .label_radio .ion-ios-circle-outline {
   color: #dbdbdb;
 }
+.ng-invalid + span {
+  position: absolute;
+  right: 10px;
+  width: auto;
+  font-size: 12px;
+}
+.ng-invalid + span p.validation-invalid {
+  color: #f05b5b;
+}
 /* 菜单栏图片配置 */
 .icontab_borrow {
   background: url(../img/icon_borrow.png) center no-repeat;

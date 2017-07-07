@@ -91,8 +91,22 @@ angular.module('my.controllers', [])
   .controller('AboutusCtrl', ['$scope', function($scope){
       console.log("AboutusCtrl");
   }])
-  .controller('LoginCtrl', ['$scope', function($scope){
-      console.log("LoginCtrl");
+  .controller('LoginCtrl', ['$scope','$state','Services', function($scope,$state,Services){
+      //登录输入手机号
+      $scope.params = {};
+      $scope.loginSubmit = function(){
+          console.log($scope.params.phone);
+          Services.getDate("A201",$scope.params).success(function(data){
+              if (data.respHead.respCode == "000000") {
+                  if (data.body.register == true) {
+                    $state.go('password');
+                  }else{
+                    $state.go('register');
+                  }
+              }
+
+          });
+      }
   }])
   .controller('PasswordCtrl', ['$scope', function($scope){
       console.log("PasswordCtrl");

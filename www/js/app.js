@@ -1,5 +1,5 @@
-angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controllers', 'my.controllers', 'free.controllers'])
-    .run(function($ionicPlatform) {
+angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controllers', 'my.controllers', 'free.controllers', 'validation','services'])
+    .run(function($ionicPlatform, $rootScope, $state, Services, $ionicHistory, $state) {
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -9,6 +9,8 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
                 StatusBar.styleDefault();
             }
         });
+        //基础路劲配置
+        $rootScope.baseUrl = "/www/json/isregister.json";
         var online = onlinenetwork({
             "time": 1000,
             "url": ""
