@@ -4,19 +4,19 @@
         <div class="list margin-top25">
             <div class="item item-input">
                 <span class="input-label">原密码</span>
-                <input type="password" placeholder="请输入密码">
+                <input type="password" placeholder="请输入密码" name="oldpass" ng-model="params.oldpass" validator="required,password" >
             </div>
             <div class="item item-input">
                 <span class="input-label">新密码</span>
-                <input type="password" placeholder="请输入新密码">
+                <input type="password" placeholder="请输入新密码" name="newpass" ng-model="params.newpass" validator="required,password" >
             </div>
             <div class="item item-input">
                 <span class="input-label">重复新密码</span>
-                <input type="password" placeholder="再次输入新密码">
+                <input type="password" placeholder="再次输入新密码" name="renewpass" data-value="{{params.newpass}}" ng-model="params.renewpass" validator="required,repassword" >
             </div>
         </div>
         <div class="btn90">
-            <button style="border-radius: 5px;" class="button button-block button-ff7d2e">确定</button>
+            <button style="border-radius: 5px;" class="button button-block button-ff7d2e" validation-submit="form" ng-disabled="form.$invalid" ng-click="updatepass();">确定</button>
             <button class="button button-clear button-positive fr" style="min-height:15px;line-height:15px;" ui-sref="forgetpass">忘记密码</button>
         </div>
         </form>

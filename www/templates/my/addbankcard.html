@@ -4,23 +4,21 @@
         <div class="list margin-top25">
             <div class="item item-input">
                 <span class="input-label">银行卡号</span>
-                <input type="password" placeholder="请输入银行卡号">
+                <input type="text" placeholder="请输入银行卡号" name="cardno" ng-model="params.cardno" validator="required,bankCard" >
             </div>
             <div class="item item-select">
                 <span class="input-label">开户行</span>
-                <select>
-                    <option>建设银行</option>
-                    <option>农业银行</option>
-                    <option>工商银行</option>
+                <select ng-model="params.bankId">
+                    <option ng-repeat="bank in bankAll" ng-value="bank.id" ng-bind="bank.bankName"></option>
                 </select>
             </div>
             <div class="item item-input">
                 <span class="input-label">预留手机</span>
-                <input type="password" placeholder="请输入预留手机号">
+                <input type="text" placeholder="请输入预留手机号" name="phone" ng-model="params.phone" validator="required,phone">
             </div>
         </div>
         <div class="btn90">
-            <button style="border-radius: 5px;" class="button button-block button-ff7d2e">确定</button>
+            <button style="border-radius: 5px;" class="button button-block button-ff7d2e" validation-submit="form" ng-disabled="form.$invalid" ng-click="addCard();" >确定</button>
         </div>
         </form>
     </ion-content>

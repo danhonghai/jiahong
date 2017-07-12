@@ -1,4 +1,36 @@
 angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controllers', 'my.controllers', 'free.controllers', 'validation','services'])
+    //身份证号过滤器，隐藏中间8位年月日
+    .filter('mpidcard', function() {
+        return function(value) {
+            if (!value) return '';
+            var mpidcard = value.substr(0, 6) + '********' + value.substr(14);
+            return mpidcard
+        };
+    })
+    //手机号过滤器，隐藏中间4位
+    .filter('mphone', function() {
+        return function(value) {
+            if (!value) return '';
+            var mphone = value.substr(0, 3) + '****' + value.substr(7);
+            return mphone
+        };
+    })
+    //银行卡号过滤器，隐藏中间12位
+    .filter('mcardno', function() {
+        return function(value) {
+            if (!value) return '';
+            var mphone = value.substr(0, 4) + ' **** **** **** ' + value.substr(16);
+            return mphone
+        };
+    })
+    //时间转化，20170323转成2017-03-23
+    .filter('timeymd', function() {
+        return function(value) {
+            if (!value) return '';
+            var timeymd = value.substr(0, 4) + '-' + value.substr(4, 2) + '-' + value.substr(6);
+            return timeymd
+        };
+    })
     .run(function($ionicPlatform, $rootScope, $state, Services, $ionicHistory, $state) {
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -11,6 +43,22 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
         });
         //基础路劲配置
         $rootScope.baseUrl = "/www/json/isregister.json";
+        //点击按钮倒计时
+        $rootScope.timer = function(time, buttonid) {
+            var btn = $(buttonid);
+            btn.attr("disabled", true); //按钮禁止点击
+            btn.html(time <= 0 ? "发送动态密码" : ("" + (time) + "秒后可发送"));
+            var hander = setInterval(function() {
+                if (time <= 0) {
+                    clearInterval(hander); //清除倒计时
+                    btn.html("发送验证码");
+                    btn.attr("disabled", false);
+                    return false;
+                } else {
+                    btn.html("" + (time--) + "秒后可发送");
+                }
+            }, 1000);
+        };
         var online = onlinenetwork({
             "time": 1000,
             "url": ""
@@ -108,6 +156,7 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             })
             .state('tab.my',{//我的
               url:'/my',
+              cache: false,
               views:{
                   'tab-my':{
                       templateUrl:'templates/my/tab_my.html',
@@ -182,6 +231,7 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             })
             .state('bankcard', {//银行卡管理
                 url: '/bankcard',
+                cache: false,
                 templateUrl: 'templates/my/bankcard.html',
                 controller: 'BankcardCtrl'
             })
@@ -206,12 +256,12 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
                 controller: 'LoginCtrl'
             })
             .state('password', {//密码
-                url: '/password',
+                url: '/password?phone',
                 templateUrl: 'templates/my/password.html',
                 controller: 'PasswordCtrl'
             })
             .state('register', {//注册
-                url: '/register',
+                url: '/register?phone',
                 templateUrl: 'templates/my/register.html',
                 controller: 'RegisterCtrl'
             })
@@ -232,7 +282,7 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             })
 
 
-        $urlRouterProvider.otherwise('/tab/my');
+        $urlRouterProvider.otherwise('/tab/borrow');
     })
     .directive('definedRadio',[function(){
         return {

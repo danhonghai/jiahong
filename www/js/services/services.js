@@ -34,7 +34,7 @@ angular.module('services', [])
                 });
             },
             //主要数据接口
-            getDate:function(functionId,params){
+            getData:function(functionId,params){
                 var data = {
                     "reqHead": {
                         "functionId": functionId,

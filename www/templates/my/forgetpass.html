@@ -4,24 +4,24 @@
         <div class="list margin-top25">
             <div class="item item-input">
                 <span class="input-label" style="width:25%;">手机号</span>
-                <input type="text" placeholder="请输入常用手机号">
+                <input type="text" placeholder="请输入常用手机号" name="phone" ng-model="params.phone" validator="required,phone" >
             </div>
             <div class="item item-input">
                 <span class="input-label" style="width:25%;">验证码</span>
-                <input type="text" placeholder="请输入验证码">
-                <button class="btn_hqyzm">获取验证码</button>
+                <input type="text" placeholder="请输入验证码" name="code" ng-model="params.code" validator="required" >
+                <button class="btn_hqyzm" ng-click="getphoneCode()" id="sendButton_pass" >获取验证码</button>
             </div>
             <div class="item item-input">
                 <span class="input-label" style="width:25%;">新密码</span>
-                <input type="password" placeholder="请输入新密码">
+                <input type="password" placeholder="请输入新密码" name="newpass" ng-model="params.newpass" validator="required,password" >
             </div>
             <div class="item item-input">
                 <span class="input-label" style="width:25%;">重复新密码</span>
-                <input type="password" placeholder="再次输入密码">
+                <input type="password" placeholder="再次输入密码" name="renewpass" data-value="{{params.newpass}}" ng-model="params.renewpass" validator="required,repassword" >
             </div>
         </div>
         <div class="btn90">
-            <button style="border-radius: 5px;" class="button button-block button-ff7d2e">确定</button>
+            <button style="border-radius: 5px;" class="button button-block button-ff7d2e" validation-submit="form" ng-disabled="form.$invalid" ng-click="forgetpass();" >确定</button>
         </div>
         </form>
     </ion-content>
