@@ -19,14 +19,46 @@ angular.module('authenticate.controllers', [])
             });
         };
     }])
-    .controller('BankmangeCtrl', ['$scope', function($scope){
+    .controller('BankmangeCtrl', ['$scope','$ionicPopup','$state', function($scope,$ionicPopup,$state){
         console.log("BankmangeCtrl");
+        $scope.faceModalOk = function(){
+            $ionicPopup.show({
+              title:'<span class="font-size24 modalTitle">识别成功</span>',
+              scope: $scope,
+              buttons: [{
+                  text: "下一步",
+                  type:'button-light cff804a',
+                  onTap: function(e) {
+                      $state.go('contactman');
+                  }
+              }]
+          });
+        };
+        $scope.faceModelFair = function(){
+            $ionicPopup.show({
+                title:'<span class="font-size24 modalTitle">识别失败</span><p class="cs9">请严格按照提示进行人脸识别</p>',
+                scope: $scope,
+                buttons: [{
+                    text: "重新识别",
+                    type:'button-light cff804a',
+                    onTap: function(e) {
+
+                    }
+                }]
+            });
+        };
+        $scope.faceRecognition = function(){
+            $scope.faceModalOk();
+        };
     }])
     .controller('ContactmanCtrl', ['$scope', function($scope){
         console.log("ContactmanCtrl");
     }])
-    .controller('ZhimaCtrl', ['$scope', function($scope){
+    .controller('ZhimaCtrl', ['$scope','$state', function($scope,$state){
         console.log("ZhimaCtrl");
+        $scope.zhimaClick = function(){
+            $state.go('zhimaok');
+        }
     }])
     .controller('MobileserviceCtrl', ['$scope', function($scope){
         console.log("MobileserviceCtrl");

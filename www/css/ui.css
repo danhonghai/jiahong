@@ -25,6 +25,9 @@
 .cff7d2e {
   color: #ff7d2e !important;
 }
+.cff804a {
+  color: #ff804a !important;
+}
 html {
   font-size: 625%;
 }
@@ -90,9 +93,6 @@ html {
 }
 .padding0 {
   padding: 0 !important;
-}
-.font-size13 {
-  font-size: 13px;
 }
 .font-size14 {
   font-size: 14px;
@@ -201,6 +201,9 @@ a {
 .cff7d2e {
   color: #ff7d2e !important;
 }
+.cff804a {
+  color: #ff804a !important;
+}
 html {
   font-size: 625%;
 }
@@ -266,9 +269,6 @@ html {
 }
 .padding0 {
   padding: 0 !important;
-}
-.font-size13 {
-  font-size: 13px;
 }
 .font-size14 {
   font-size: 14px;
@@ -360,6 +360,9 @@ a {
 }
 img {
   max-width: 100%;
+}
+.cb00000 {
+  color: #cb0000;
 }
 .label_radio {
   margin-left: 0.14rem;
@@ -470,6 +473,12 @@ input[type="radio"] {
   margin: 0 auto;
   width: 90%;
 }
+.btn_bottom {
+  position: absolute;
+  bottom: 0;
+  background: #ffffff;
+  width: 100%;
+}
 /* 首页 */
 .borrow_wrap {
   background: url(../img/borrow_bg.png) left bottom no-repeat;
@@ -482,7 +491,7 @@ input[type="radio"] {
   text-align: center;
 }
 .borrow_wrap .location {
-  margin-top: 6%;
+  margin-top: 8%;
   font-size: 0.24rem;
   color: #ff7d2e;
   text-align: center;
@@ -834,4 +843,20 @@ input[type="radio"] {
   width: 10px;
   height: 10px;
   border-radius: 100%;
+}
+/* 借款成功 */
+.loanOk p {
+  margin-bottom: 0;
+}
+.loanOk p.title {
+  font-size: 24px;
+  color: #6ee982;
+  text-align: left;
+}
+.loanOk .loanInfo {
+  text-align: justify;
+}
+.modalTitle {
+  display: inline-block;
+  margin: 0.25rem 0;
 }

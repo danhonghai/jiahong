@@ -3,7 +3,7 @@
         <div class="loan_top">
           <div class="loan_bank">
               <div class="row bank_title">
-                  <div class="col col-30 padding0 csfff font-size13">嘉鸿<i class="icon_dot"></i>现金卡</div>
+                  <div class="col col-30 padding0 csfff font-size14" style="letter-spacing: 1px;">发发钱包&nbsp;<i class="icon_dot"></i></div>
                   <div class="col padding0"><span>资料真实即可申请，快至10分钟到账<span></div>
               </div>
               <div class="row loan_limit padding0">
@@ -28,7 +28,7 @@
             <span>借款金额</span>
             <p class="amount" ng-bind="rangeValue"></p>
             <div class="range">
-                <input type="range" name="volume" min="500" max="5000" step="100" ng-init="rangeValue='500'" ng-model="rangeValue">
+                <input type="range" name="volume" min="500" max="5000" step="500" ng-init="rangeValue='500'" ng-model="rangeValue">
             </div>
             <div class="row rang_scope">
                 <div class="col">500</div>
@@ -39,7 +39,7 @@
                 <div class="col">
                     <button class="button button-ff7d2e">7天</button>
                     <button style="border-color:#999;" class="button button-light">14天</button>
-                    <button style="border-color:#999;" class="button button-light">1月</button>
+                    <button style="border-color:#999;" class="button button-light">21天</button>
                 </div>
             </div>
             <div class="row loan_row">
@@ -47,11 +47,11 @@
                 <div class="col"><span>2,700.00</span></div>
             </div>
             <div class="row loan_row">
-                <div class="col col-40">综合费用<i class="icon icon_zh" style="position: relative;top: 0.04rem;left: 0.05rem"></i></div>
+                <div class="col col-40" ng-click="showModal()">综合费用<i class="icon icon_zh" style="position: relative;top: 0.04rem;left: 0.05rem"></i></div>
                 <div class="col"><span>300.00</span></div>
             </div>
             <div class="btn">
-                <button style="border-radius: 20px;" class="button button-block button-ff7d2e" ng-click="showModal()">立即还款</button>
+                <button style="border-radius: 20px;" class="button button-block button-ff7d2e" ng-click="loanClick()">立即借款</button>
             </div>
             <div class="loan_prompt icon ion-alert-circled"><span>暂不为学生服务</span></div>
         </div>
@@ -67,23 +67,42 @@
         <div class="col">信息认证费</div>
         <div class="col">30.00元</div>
     </div>
-    <div class="row loan_modal">
+    <!-- <div class="row loan_modal">
         <div class="col">风控服务费</div>
         <div class="col">60.00元</div>
-    </div>
+    </div> -->
     <div class="row loan_modal">
         <div class="col">风险准备金</div>
         <div class="col">150.00元</div>
     </div>
     <div class="row loan_modal">
         <div class="col">合计</div>
-        <div class="col">300.00元</div>
+        <div class="col">240.00元</div>
     </div>
     <div class="btn">
         <button style="border-radius: 20px;" class="button button-block button-ff7d2e" ng-click="closeModal()">知道了</button>
     </div>
     <div class="loan_modal_info">
         <p>1. 综合费用将在借款时一次性收取</p>
-        <p>2. 利息将在还款时收取，请在交易完成后于订单页的借款协议查看具体信息（年华利率约6%～9.5%，取决于为您撮合的借款人）</p>
+        <p>2. 利息将在还款时收取，请在交易完成后于订单页的借款协议查看具体信息（日利率0.08%）</p>
     </div>
+</script>
+
+
+<script id="templates/pass_modal.html" type="text/ng-template">
+    <form class="pass-form" name="pass_form" novalidate pass-form>
+      <label for="pass">
+        <input class="pass-input Jpass" type="tel" name="pass" id="pass" autocomplete="off" ng-model="pass" required maxlength="6" />
+
+        <div class="pass-border-box">
+          <span class="pass-border"><i>dot</i></span>
+          <span class="pass-border"><i>dot</i></span>
+          <span class="pass-border"><i>dot</i></span>
+          <span class="pass-border"><i>dot</i></span>
+          <span class="pass-border"><i>dot</i></span>
+          <span class="pass-border"><i>dot</i></span>
+          <div class="faguang Jfaguang"></div>
+        </div>
+      </label>
+    </form>
 </script>

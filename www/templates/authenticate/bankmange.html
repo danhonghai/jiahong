@@ -1,23 +1,13 @@
-<ion-view view-title="银行卡认证">
+<ion-view view-title="人脸识别">
     <ion-content class="stable-bg">
-        <form name="form">
-        <div class="list margin-top25">
-            <div class="item item-input">
-                <span class="input-label">开户行</span>
-                <input type="text" placeholder="请输入开户行">
-            </div>
-            <div class="item item-input">
-                <span class="input-label">银行卡</span>
-                <input type="text" placeholder="请输入银行卡号">
-            </div>
-            <div class="item item-input">
-                <span class="input-label">预留手机</span>
-                <input type="text" placeholder="请输入预留手机">
-            </div>
+        <div><img src="img/icon_auth2.png" style="width:100%" alt="认证第二步"></div>
+        <div class="light-bg" style="padding:0.45rem 0.45rem 0.2rem 0.45rem;">
+          <img src="img/face.png" alt="人脸识别">
+          <p class="text-center cs9 margin-top15">点击开始人脸识别，按提示完成识别</p>
         </div>
-        <div class="btn90">
-            <button style="border-radius: 5px;" class="button button-block button-ff7d2e">提交</button>
-        </div>
-        </form>
+        <p style="margin-top:10px;padding-left:16px;color:#999999;"><span style="color:#970000;">温馨提示：</span>获得额度分为五个步骤请耐心填写。</p>
     </ion-content>
+    <div class="btn_bottom">
+        <button style="border-radius: 5px;width:90%;margin:10px auto;" class="button button-block button-ff7d2e" ng-click="faceRecognition()">开始人脸识别</button>
+    </div>
 </ion-view>

@@ -1,7 +1,7 @@
 <ion-view view-title="紧急联系人">
-    <ion-content class="stable-bg">
+    <ion-content class="stable-bg" style="bottom:67px;">
+        <div><img src="img/icon_auth3.png" style="width:100%" alt="认证第三步"></div>
         <form name="form">
-        <p style="margin-top:10px;padding-left:16px;color:#999999;">联系人一</p>
         <div class="list">
             <div class="item item-select">
                 <span class="input-label">关系</span>
@@ -39,9 +39,35 @@
                 <input type="text" placeholder="请输入联系人电话">
             </div>
         </div>
-        <div class="btn90">
-            <button style="border-radius: 5px;" class="button button-block button-ff7d2e">提交</button>
+        <p style="margin-top:-10px;padding-left:16px;color:#999999;">其他身份信息</p>
+        <div class="list">
+            <div class="item item-select">
+                <span class="input-label">从事行业</span>
+                <select>
+                    <option selected>计算机</option>
+                    <option >医学</option>
+                    <option>教育</option>
+                </select>
+            </div>
+            <div class="item item-input">
+                <span class="input-label">居住地址</span>
+                <input type="text" placeholder="请输入单位详细地址">
+            </div>
+            <div class="item item-select">
+                <span class="input-label">学历</span>
+                <select>
+                    <option selected>大专</option>
+                    <option>本科</option>
+                    <option>硕士</option>
+                </select>
+            </div>
         </div>
+        <!-- <div class="btn90">
+            <button style="border-radius: 5px;" class="button button-block button-ff7d2e">提交</button>
+        </div> -->
         </form>
     </ion-content>
+    <div class="btn_bottom">
+        <button style="border-radius: 5px;width:90%;margin:10px auto;" class="button button-block button-ff7d2e" ui-sref="mobileservice">下一步</button>
+    </div>
 </ion-view>

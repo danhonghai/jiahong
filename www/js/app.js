@@ -139,6 +139,11 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
                 templateUrl: 'templates/authenticate/zhima.html',
                 controller: 'ZhimaCtrl'
             })
+            .state('zhimaok', {//芝麻信用成功
+                url: '/zhimaok',
+                templateUrl: 'templates/authenticate/zhimaok.html',
+                controller: 'ZhimaCtrl'
+            })
             .state('mobileservice', {//手机运营商
                 url: '/mobileservice',
                 templateUrl: 'templates/authenticate/mobileservice.html',

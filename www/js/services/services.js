@@ -72,7 +72,9 @@ angular.module('services', [])
             ionicpopup: function(title, template) {
                 $ionicPopup.alert({
                     title: title,
-                    template: template
+                    template: template,
+                    okText:'确定',
+                    okType:'button-light'
                 });
             }
         }
