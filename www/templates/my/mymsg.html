@@ -1,30 +1,15 @@
 <ion-view view-title="我的消息">
     <ion-content class="stable-bg">
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()">
+        </ion-refresher>
         <div class="list">
-            <div class="item item-avatar item-icon-right" >
+            <div class="item item-avatar item-icon-right" ng-repeat="item in data">
                 <img src="img/icon_news.png">
-                <span>系统通知</span>
-                <span class="fr csdb">2017.05.13</span>
-                <p>系统通知内容系统通知内容系统通知内容系统</p>
-            </div>
-            <div class="item item-avatar item-icon-right" >
-                <img src="img/icon_news.png">
-                <span>系统通知</span>
-                <span class="fr csdb">2017.05.13</span>
-                <p>系统通知内容系统通知内容系统通知内容系统</p>
-            </div>
-            <div class="item item-avatar item-icon-right" >
-                <img src="img/icon_news.png">
-                <span>系统通知</span>
-                <span class="fr csdb">2017.05.13</span>
-                <p>系统通知内容系统通知内容系统通知内容系统</p>
-            </div>
-            <div class="item item-avatar item-icon-right" >
-                <img src="img/icon_news.png">
-                <span>系统通知</span>
-                <span class="fr csdb">2017.05.13</span>
-                <p>系统通知内容系统通知内容系统通知内容系统</p>
+                <span ng-bind="item.title"></span>
+                <span class="fr csdb" ng-bind="item.date"></span>
+                <p ng-bind="item.content"></p>
             </div>
         </div>
+    <ion-infinite-scroll icon="ion-loading-c" ng-if="!moredata" on-infinite="loadMore()" distance="1%" ></ion-infinite-scroll>
     </ion-content>
 </ion-view>

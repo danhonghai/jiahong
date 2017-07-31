@@ -10,22 +10,22 @@
              -->
             <div class="item item-input">
                 <span class="input-label">姓名</span>
-                <input type="text" placeholder="请输入真实姓名">
+                <input type="text" placeholder="请输入真实姓名" name="name" ng-model="params.name" validator="required">
             </div>
             <div class="item item-input">
                 <span class="input-label">身份证</span>
-                <input type="text" placeholder="请输入身份证号">
+                <input type="text" placeholder="请输入身份证号" name="idCard" ng-model="params.idCard" validator="required,idCard">
             </div>
             <div class="item item-input">
                 <span class="input-label">身份证上传</span>
                 <div class="row">
-                    <div class="col col-40"><span>正</span><img src="img/photo.png" alt="身份证上传" ng-click="show()"></div>
-                    <div class="col"><span>反</span><img src="img/photo.png" alt="身份证上传" ng-click="show()"></div>
+                    <div class="col col-40"><span>正</span><img src="img/photo.png" alt="身份证上传" ng-click="show(1)"></div>
+                    <div class="col"><span>反</span><img src="img/photo.png" alt="身份证上传" ng-click="show(2)"></div>
                 </div>
             </div>
             <div class="item item-input">
                 <span class="input-label">手持证件照</span>
-                <img src="img/photo.png" alt="人脸识别" style="margin-left: 27px;" ng-click="show()">
+                <img src="img/photo.png" alt="人脸识别" style="margin-left: 27px;" ng-click="show(3)">
             </div>
             <!-- <div class="item padding0">
                 <div class="row padding0">
@@ -51,16 +51,17 @@
             </div>
             <div class="item item-input">
                 <span class="input-label">银行卡</span>
-                <input type="text" placeholder="请输入银行卡号">
+                <input type="text" placeholder="请输入银行卡号" name="cardno" ng-model="params.cardno" validator="required,bankCard">
             </div>
             <div class="item item-input">
                 <span class="input-label">预留手机</span>
-                <input type="text" placeholder="请输入预留手机">
+                <input type="text" placeholder="请输入预留手机" name="phone" ng-model="params.phone" validator="required,phone">
             </div>
+        </div>
+        <div class="btn90">
+            <button style="border-radius: 5px;" class="button button-block button-ff7d2e" validation-submit="form" ng-disabled="form.$invalid"   ng-click="submit();">下一步</button>
         </div>
         </form>
     </ion-content>
-    <div class="btn_bottom">
-        <button style="border-radius: 5px;width:90%;margin:10px auto;" class="button button-block button-ff7d2e" ui-sref="bankmange">下一步</button>
-    </div>
+
 </ion-view>

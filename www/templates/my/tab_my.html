@@ -2,14 +2,14 @@
     <ion-content class="stable-bg">
         <div class="auth_top text-center" style="background:#ffc68f;">
             <h4 class="light">当前待还金额</h4>
-            <span class="auth_limit">{{userInfosession.payAmount | number}}</span>
+            <span class="auth_limit">{{userInfosession.payAmount | number:2}}</span>
             <p class="light">还款日：<span ng-bind="userInfosession.payDate"></span></p>
         </div>
         <div class="item item-avatar item-icon-right bordernone" ui-sref="usersetting">
             <img src="img/avatar.png">
             <h2 ng-bind="userInfosession.phone | mphone"></h2>
             <p><span class="my_border">已认证</span></p>
-            <i class="icon" style="font-size: 16px; color: #999; padding-right: 30px;">个人信息及设置<i style="right: 0px;" class="icon ion-ios-arrow-right"></i></i>
+            <i class="icon" style="font-size: 16px; color: #999; padding-right: 30px;">账户设置<i style="right: 0px;" class="icon ion-ios-arrow-right"></i></i>
         </div>
         <div class="list my_list margin-top15">
             <div class="item item-icon-left item-icon-right" ui-sref="loanlist">
@@ -23,11 +23,11 @@
                 <h2 class="padding-left">免息券</h2>
                 <i class="icon ion-ios-arrow-right"></i>
             </div>
-            <div class="item item-icon-left item-icon-right" ui-sref="inviterewards">
+            <!-- <div class="item item-icon-left item-icon-right" ui-sref="inviterewards">
                 <i class="icon"><img src="img/icon_invite.png" alt="邀请奖励"></i>
                 <h2 class="padding-left">邀请奖励</h2>
                 <i class="icon ion-ios-arrow-right"></i>
-            </div>
+            </div> -->
             <div class="item item-icon-left item-icon-right" ui-sref="mymsg">
                 <i class="icon"><img src="img/icon_msg.png" alt="我的消息"></i>
                 <h2 class="padding-left">我的消息</h2>

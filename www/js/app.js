@@ -42,7 +42,7 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             }
         });
         //基础路劲配置
-        $rootScope.baseUrl = "/www/json/isregister.json";
+        $rootScope.baseUrl = "/apis/jiahong-web/user/";
         //点击按钮倒计时
         $rootScope.timer = function(time, buttonid) {
             var btn = $(buttonid);
@@ -89,6 +89,7 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             })
             .state('tab.borrow',{//借款
               url:'/borrow',
+              cache: false,
               views:{
                   'tab-borrow':{
                       templateUrl:'templates/borrow/tab_borrow.html',
@@ -96,8 +97,9 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
                   }
               }
             })
-            .state('loan', {
+            .state('loan', {//借款
                 url: '/loan',
+                cache: false,
                 templateUrl: 'templates/borrow/loan.html',
                 controller: 'LoanCtrl'
             })
@@ -225,12 +227,12 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
                 controller: 'UpdatemobileCtrl'
             })
             .state('forgetpass', {//忘记密码／忘记交易密码
-                url: '/forgetpass',
+                url: '/forgetpass?type',  //type: 1.忘记登陆密码，2，忘记支付密码
                 templateUrl: 'templates/my/forgetpass.html',
                 controller: 'ForgetpassCtrl'
             })
             .state('updatepass', {//修改密码／交易密码
-                url: '/updatepass',
+                url: '/updatepass?type',  //type:1标识修改登陆密码，2标识修改支付密码
                 templateUrl: 'templates/my/updatepass.html',
                 controller: 'UpdatepassCtrl'
             })
@@ -257,16 +259,18 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             })
             .state('login', {//登录
                 url: '/login',
+                cache: false,
                 templateUrl: 'templates/my/login.html',
                 controller: 'LoginCtrl'
             })
             .state('password', {//密码
-                url: '/password?phone',
+                url: '/password?mobile',
+                cache: false,
                 templateUrl: 'templates/my/password.html',
                 controller: 'PasswordCtrl'
             })
             .state('register', {//注册
-                url: '/register?phone',
+                url: '/register?mobile',
                 templateUrl: 'templates/my/register.html',
                 controller: 'RegisterCtrl'
             })

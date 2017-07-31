@@ -5,7 +5,7 @@
         <div class="list">
             <div class="item item-input">
                 <span class="input-label" style="width:25%;">验证码</span>
-                <input type="text" placeholder="请输入验证码" name="code" ng-model="params.code" validator="required" >
+                <input type="text" placeholder="请输入验证码" name="verifyCode" ng-model="params.verifyCode" validator="required" class="inputSpan" >
                 <button class="btn_hqyzm" ng-click="getphoneCode()" id="sendButton_reg" >获取验证码</button>
             </div>
             <div class="item item-input">
@@ -14,7 +14,13 @@
             </div>
             <div class="item item-input">
                 <span class="input-label" style="width:25%;">重复密码</span>
-                <input type="password" placeholder="再次输入密码" name="repassword" data-value="{{params.password}}" ng-model="params.repassword" validator="required,repassword" >
+                <input type="password" placeholder="再次输入密码" data-value="{{params.password}}" ng-model="$parent.repassword" name="repassword" validator="required,repassword" >
+            </div>
+            <div class="item item-checkbox" style="padding-left: 47px;font-size:14px;">
+                <label class="checkbox">
+                    <input type="checkbox" checked ng-true-value="true" ng-false-value="false" ng-model="$parent.protocol" >
+                </label>
+                本人已阅读,并同意<a href="javaScript:void(0);">《嘉鸿用户使用协议》</a>
             </div>
         </div>
         <div class="btn90">

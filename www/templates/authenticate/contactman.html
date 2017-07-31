@@ -1,5 +1,5 @@
 <ion-view view-title="紧急联系人">
-    <ion-content class="stable-bg" style="bottom:67px;">
+    <ion-content class="stable-bg">
         <div><img src="img/icon_auth3.png" style="width:100%" alt="认证第三步"></div>
         <form name="form">
         <div class="list">
@@ -13,11 +13,11 @@
             </div>
             <div class="item item-input">
                 <span class="input-label">联系人姓名</span>
-                <input type="text" placeholder="请输入所选联系人的姓名">
+                <input type="text" placeholder="请输入所选联系人的姓名" name="name1" ng-model="params.name1" validator="required">
             </div>
             <div class="item item-input">
                 <span class="input-label">联系人电话</span>
-                <input type="text" placeholder="请输入联系人电话">
+                <input type="text" placeholder="请输入联系人电话" name="phone1" ng-model="params.phone1" validator="required,phone">
             </div>
         </div>
         <p style="margin-top:-10px;padding-left:16px;color:#999999;">联系人二</p>
@@ -32,11 +32,11 @@
             </div>
             <div class="item item-input">
                 <span class="input-label">联系人姓名</span>
-                <input type="text" placeholder="请输入所选联系人的姓名">
+                <input type="text" placeholder="请输入所选联系人的姓名" name="name2" ng-model="params.name2" validator="required">
             </div>
             <div class="item item-input">
                 <span class="input-label">联系人电话</span>
-                <input type="text" placeholder="请输入联系人电话">
+                <input type="text" placeholder="请输入联系人电话" name="phone2" ng-model="params.phone2" validator="required,phone">
             </div>
         </div>
         <p style="margin-top:-10px;padding-left:16px;color:#999999;">其他身份信息</p>
@@ -51,7 +51,7 @@
             </div>
             <div class="item item-input">
                 <span class="input-label">居住地址</span>
-                <input type="text" placeholder="请输入单位详细地址">
+                <input type="text" placeholder="请输入单位详细地址" name="address" ng-model="params.address" validator="required">
             </div>
             <div class="item item-select">
                 <span class="input-label">学历</span>
@@ -62,12 +62,12 @@
                 </select>
             </div>
         </div>
-        <!-- <div class="btn90">
-            <button style="border-radius: 5px;" class="button button-block button-ff7d2e">提交</button>
-        </div> -->
+        <div class="btn90">
+            <button style="border-radius: 5px;" class="button button-block button-ff7d2e" validation-submit="form" ng-disabled="form.$invalid"   ng-click="submit();">下一步</button>
+        </div>
         </form>
     </ion-content>
-    <div class="btn_bottom">
+    <!-- <div class="btn_bottom">
         <button style="border-radius: 5px;width:90%;margin:10px auto;" class="button button-block button-ff7d2e" ui-sref="mobileservice">下一步</button>
-    </div>
+    </div> -->
 </ion-view>

@@ -14,6 +14,9 @@ img {
 .cb00000{
     color: #cb0000;
 }
+.border999{
+    border-color: #999 !important;
+}
 .label_radio{
     margin-left: 0.14rem;
     font-size: 16px;
@@ -32,12 +35,15 @@ img {
 }
 .ng-invalid+span{
     position: absolute;
-    right: 10px;
+    right: 4px;
     width: auto;
     font-size: 12px;
     p.validation-invalid{
-        color: @color-red;
+        color: #d70000;
     }
+}
+.ng-invalid.inputSpan+span{
+    right: 100px;
 }
 
 /* 菜单栏图片配置 */
@@ -92,8 +98,8 @@ img {
 .icon_zh{
   display: inline-block;
   background: url(../img/icon_zh.png) center no-repeat;
-  width: 0.2rem;
-  height: 0.2rem;
+  width: 0.15rem;
+  height: 0.15rem;
   background-size: contain;
 }
 
@@ -312,6 +318,7 @@ input[type="radio"]{
                 min-height: 0.3rem;
                 padding: 0;
                 width: 30%;
+                margin-left: 5px;
             }
             span{
                 color: #ff7d2e;
@@ -462,7 +469,8 @@ input[type="radio"]{
     }
 }
 .btn_hqyzm {
-    margin-right: 25px;
+    position: absolute;
+    right: 5px;
     color: #ff7d2e;
     border:1px solid #ff7d2e;
     padding: 7px 10px;
@@ -497,4 +505,28 @@ input[type="radio"]{
 .modalTitle{
     display: inline-block;
     margin:0.25rem 0;
+}
+
+//還款成功彈窗提示信息
+.loanDialogOK{
+    background: url(../img/loanok.png) no-repeat;
+    height: 150px;
+    background-size: cover;
+    font-size: 20px;
+    color: #18a941;
+    text-align: center;
+    padding-top: 120px;
+}
+.loanDialogFail{
+    background: url(../img/loanfail.png) no-repeat;
+    height: 150px;
+    background-size: cover;
+    font-size: 20px;
+    color: #a91818;
+    text-align: center;
+    padding-top: 120px;
+}
+.popup-head+.popup-buttons{
+    padding: 3px;
+    min-height: 50px;
 }

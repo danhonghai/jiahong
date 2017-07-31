@@ -1,5 +1,5 @@
 <ion-view view-title="借款记录" class="stable-bg">
-    <p class="text-right cs6 margin-top10 padding-right">还款日：2017.05.30</p>
+    <!-- <p class="text-right cs6 margin-top10 padding-right">还款日：2017.05.30</p>
     <div class="item">
         <h2>本次账单总额</h2>
         <div class="row padding0">
@@ -10,28 +10,32 @@
     <div class="item item-icon-right margin-top15 bordernone">
         <h2>历史账单</h2>
         <i class="icon ion-ios-arrow-right" ui-sref="historybill" ></i>
-    </div>
-    <div class="item tabs light-bg margin-top15">
-        <a class="tab-item" ng-repeat="tab in tabs" ng-class="{true:'active',false:''}[tab.success]" ng-bind="tab.name" ng-click="clickTab($index)"></a>
-    </div>
-    <ion-content style="top: 250px;" class="padding has-footer">
+    </div> -->
+    <ion-content class="padding has-footer">
+        <div class="item tabs light-bg margin-top15">
+            <a class="tab-item" ng-repeat="tab in tabs" ng-class="{true:'active',false:''}[tab.success]" ng-bind="tab.name" ng-click="clickTab($index)"></a>
+        </div>
         <div class="list">
             <div class="item light-bg margin-top15" ng-repeat="data in [1]">
-                <h2 class="cs3" style="font-size:18px;">10,000.00现金借款</h2>
-                <div class="row bortop">
-                    <div class="col col-33 text-center">
+                <h2 class="cs3 font-size18" style="font-weight: bold;margin-bottom:10px;">{{loanData.loan | number:2}}现金借款</h2>
+                <div class="row bortop text-center">
+                    <div class="col col-33">
                         <p>总借款金额</p>
-                        <span class="font-size20 cs3">999,999.99</span>
+                        <span class="font-size20 cs3">{{loanData.loanNum | number:2}}</span>
+                    </div>
+                    <div class="col">
+                        <p>利息</p>
+                        <span class="font-size20 cs3">{{loanData.accural | number:2}}</span>
                     </div>
                 </div>
                 <div class="row text-center margin-top10">
                     <div class="col col-33">
                         <p>还款日</p>
-                        <span class="font-size20 cs3">2017.05.30</span>
+                        <span class="font-size20 cs3">{{loanData.loanDate}}</span>
                     </div>
                     <div class="col">
                         <p>订单状态</p>
-                        <span class="font-size18 cs3">还款中／预期</span>
+                        <span class="font-size18 cs3">{{loanData.state}}</span>
                     </div>
                 </div>
             </div>
@@ -39,8 +43,8 @@
     </ion-content>
     <div class="bar bar-footer">
         <div class="button-bar">
-            <a class="button cff7d2e button-light button-clear" style="font-size:14px;flex:1.5" ui-sref="repaymentahead">提前还款</a>
-            <a class="button button-ff7d2e" style="border-radius:5px;font-size:14px;" ui-sref="repayment">还款</a>
+            <a class="button" style="background:#ffc68f; color:#fff;border-radius:5px;" ng-click="doRepay()">提前还款</a>
+            <a class="button button-ff7d2e" style="border-radius:5px;margin-left:20px;" ng-click="doRepay()">还款</a>
         </div>
     </div>
 </ion-view>

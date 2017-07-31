@@ -34,24 +34,14 @@ angular.module('services', [])
                 });
             },
             //主要数据接口
-            getData:function(functionId,params){
-                var data = {
-                    "reqHead": {
-                        "functionId": functionId,
-                        "terminalType": "3",
-                        "terminalId": "",
-                        "transTime": this.getNowTime(),
-                        "version": "1.0.0",
-                        "clientIp": ""
-                    },
-                    "body": params
-                };
+            getData:function(url,params){
                 var  d = $q.defer();
                 var promise = d.promise;
                 $http({
-                    method: 'GET',
-                    url: $rootScope.baseUrl,
-                    data: angular.toJson(data),
+                    method: 'POST',
+                    headers: {token: sessionStorage.token},
+                    url: $rootScope.baseUrl+url,
+                    data: angular.toJson(params),
                     dataType:"json",
                 }).then(function successCallback(response) {
                         d.resolve(response.data);
@@ -74,7 +64,7 @@ angular.module('services', [])
                     title: title,
                     template: template,
                     okText:'确定',
-                    okType:'button-light'
+                    okType:'button-stable'
                 });
             }
         }

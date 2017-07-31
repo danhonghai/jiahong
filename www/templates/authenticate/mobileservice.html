@@ -13,21 +13,24 @@
             </div> -->
             <div class="item item-input">
                 <span class="input-label" style="width:25%;">手机号码</span>
-                <input type="text" placeholder="请输入手机号">
+                <input type="text" placeholder="请输入手机号" name="phone" ng-model="params.phone" validator="required,phone">
             </div>
             <div class="item item-input">
                 <span class="input-label" style="width:25%;">服务密码</span>
-                <input type="text" placeholder="请输入服务密码">
+                <input type="text" placeholder="请输入服务密码" name="pass" ng-model="params.pass" validator="required">
             </div>
             <div class="item item-input">
                 <span class="input-label" style="width:25%;">验证码</span>
                 <input type="text" placeholder="请输入验证码" name="code" ng-model="params.code" validator="required" >
-                <button class="btn_hqyzm" ng-click="getphoneCode()" id="sendButton_reg" >获取验证码</button>
+                <button class="btn_hqyzm" ng-click="getphoneCode()" id="sendButton_service" >获取验证码</button>
             </div>
+        </div>
+        <div class="btn90">
+            <button style="border-radius: 5px;" class="button button-block button-ff7d2e" validation-submit="form" ng-disabled="form.$invalid"   ng-click="submit();">下一步</button>
         </div>
         </form>
     </ion-content>
-    <div class="btn_bottom">
+    <!-- <div class="btn_bottom">
         <button style="border-radius: 5px;width:90%;margin:10px auto;" class="button button-block button-ff7d2e" ui-sref="zhima">下一步</button>
-    </div>
+    </div> -->
 </ion-view>

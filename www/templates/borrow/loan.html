@@ -10,7 +10,7 @@
                   <div class="col col-33 col-offset-67">可借额度</div>
               </div>
               <div class="row loan_limitNum padding0">
-                  <div class="col col-50 col-offset-50">1,000～10,000</div>
+                  <div class="col col-50 col-offset-50">{{data.minLoan | number}}～{{data.maxLoan | number}}</div>
               </div>
               <div class="row bank_num padding0">
                   <div class="col">6222  8888  ****  8888</div>
@@ -20,35 +20,43 @@
               </div>
           </div>
           <div class="row loan_notivce">
-              <div class="col col-75 csfff">尾号9808，刚刚借款10,000.00元</div>
+              <div class="col col-75 csfff">
+                  <div class="swiper-container swiper-container2">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide"><div>尾号9808，刚刚借款10,000.00元</div></div>
+                      <div class="swiper-slide"><div>尾号4535，刚刚借款4,000.00元</div></div>
+                      <div class="swiper-slide"><div>尾号1354，刚刚借款12,000.00元</div></div>
+                      <div class="swiper-slide"><div>尾号3712，刚刚借款1,000.00元</div></div>
+                    </div>
+                  </div>
+              </div>
               <div class="col"><i class="icon icon_location2"></i><span>杭州</span></div>
           </div>
         </div>
         <div class="loan_main">
             <span>借款金额</span>
-            <p class="amount" ng-bind="rangeValue"></p>
+            <p class="amount" ng-bind="data.rangeValue"></p>
             <div class="range">
-                <input type="range" name="volume" min="500" max="5000" step="500" ng-init="rangeValue='500'" ng-model="rangeValue">
+                <input type="range" name="rangeValue" min="{{data.minLoan}}" max="{{data.maxLoan}}" step="{{data.minLoan}}" ng-model="data.rangeValue">
             </div>
             <div class="row rang_scope">
-                <div class="col">500</div>
-                <div class="col">5000</div>
+                <div class="col">{{data.minLoan}}</div>
+                <div class="col">{{data.maxLoan}}</div>
             </div>
             <div class="row loan_row" style="border-bottom:1px solid #dbdbdb;">
                 <div class="col col-33">借款期限</div>
                 <div class="col">
-                    <button class="button button-ff7d2e">7天</button>
-                    <button style="border-color:#999;" class="button button-light">14天</button>
-                    <button style="border-color:#999;" class="button button-light">21天</button>
+                    <button class="button" ng-repeat="btn in btns" ng-class="{true:'button-ff7d2e',false:'button-light border999'}[btn.success]" ng-bind="btn.name" ng-click="clickBtn($index)"></button>
                 </div>
             </div>
             <div class="row loan_row">
-                <div class="col col-33">到账金额</div>
-                <div class="col"><span>2,700.00</span></div>
+                <div class="col col-33">到期应还</div>
+                <div class="col"><span>3,100.00</span></div>
             </div>
-            <div class="row loan_row">
-                <div class="col col-40" ng-click="showModal()">综合费用<i class="icon icon_zh" style="position: relative;top: 0.04rem;left: 0.05rem"></i></div>
-                <div class="col"><span>300.00</span></div>
+            <div class="loan_row">
+              借款将收取手续费5%<i class="icon icon_zh" style="position: relative;top: 0.02rem;left: 0.05rem" ng-click="showModal()"></i>
+                <!-- <div class="col col-40" ng-click="showModal()">综合费用<i class="icon icon_zh" style="position: relative;top: 0.04rem;left: 0.05rem"></i></div>
+                <div class="col"><span>300.00</span></div> -->
             </div>
             <div class="btn">
                 <button style="border-radius: 20px;" class="button button-block button-ff7d2e" ng-click="loanClick()">立即借款</button>
@@ -61,11 +69,11 @@
 <script id="templates/loan_modal.html" type="text/ng-template">
     <div class="row loan_modal">
         <div class="col">平台服务费</div>
-        <div class="col">60.00元</div>
+        <div class="col">{{modalData.platform}}元</div>
     </div>
     <div class="row loan_modal">
         <div class="col">信息认证费</div>
-        <div class="col">30.00元</div>
+        <div class="col">{{modalData.info}}元</div>
     </div>
     <!-- <div class="row loan_modal">
         <div class="col">风控服务费</div>
@@ -73,11 +81,11 @@
     </div> -->
     <div class="row loan_modal">
         <div class="col">风险准备金</div>
-        <div class="col">150.00元</div>
+        <div class="col">{{modalData.risk}}元</div>
     </div>
     <div class="row loan_modal">
         <div class="col">合计</div>
-        <div class="col">240.00元</div>
+        <div class="col">{{modalData.amount}}元</div>
     </div>
     <div class="btn">
         <button style="border-radius: 20px;" class="button button-block button-ff7d2e" ng-click="closeModal()">知道了</button>
@@ -92,8 +100,7 @@
 <script id="templates/pass_modal.html" type="text/ng-template">
     <form class="pass-form" name="pass_form" novalidate pass-form>
       <label for="pass">
-        <input class="pass-input Jpass" type="tel" name="pass" id="pass" autocomplete="off" ng-model="pass" required maxlength="6" />
-
+        <input class="pass-input Jpass" type="tel" name="pass" id="pass" autocomplete="off" ng-model="passObj.pass" required maxlength="6" />
         <div class="pass-border-box">
           <span class="pass-border"><i>dot</i></span>
           <span class="pass-border"><i>dot</i></span>

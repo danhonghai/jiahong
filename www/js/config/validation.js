@@ -3,7 +3,7 @@ angular.module('starter').config(['$validationProvider', function($validationPro
   var expression = {
     phone: /^[1][3456789][0-9]{9}$/,
     QQ:/^[1-9][0-9]{4,9}$/,
-    password:/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,15}$/,
+    password:/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/,
     idCard:/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
     bankCard:/^(\d{16}|\d{19})$/,
     repassword: function(value, scope, element, attrs) {
@@ -16,11 +16,11 @@ angular.module('starter').config(['$validationProvider', function($validationPro
   var defaultMsg = {
     phone: {
       success: '',
-      error: '手机号码不规范'
+      error: '输入有误'
     },
     password: {
       success: '',
-      error: '密码必须6到15为数字字母组合'
+      error: '密码为6到16为数字字母组合'
     },
     repassword: {
       success: '',
@@ -28,19 +28,19 @@ angular.module('starter').config(['$validationProvider', function($validationPro
     },
     QQ: {
       success: '',
-      error: 'QQ号码不规范'
+      error: '输入有误'
     },
     idCard: {
       success: '',
-      error: '身份证号码不规范'
+      error: '输入有误'
     },
     bankCard: {
       success: '',
-      error: '银行卡号不规范'
+      error: '输入有误'
     },
     required: {
       success: '',
-      error: '不能为空'
+      error: '必填项'
     }
   };
   $validationProvider.setExpression(expression).setDefaultMsg(defaultMsg);
