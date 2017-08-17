@@ -1,0 +1,189 @@
+.indexFlash{width:100%; height:900px; overflow:hidden; position:relative;}
+.indexFlash li{height:900px; position:relative;}
+.indexFlash .img{width:100%; height:100%;
+transform:scale(1.2);-webkit-transform:scale(1.2);-moz-transform:scale(1.2);-o-transform:scale(1.2);-ms-transform:scale(1.2);
+transition:All 7s ease;
+-webkit-transition:All 7s ease;
+-moz-transition:All 7s ease;
+-o-transition:All 7s ease;
+}
+.indexFlash .img img{width:100%;}
+.indexFlash .btn{display:block; background:url("../image/btn1.png")/*tpa=https://shanqb.com/image/btn1.png*/ left top no-repeat; width:208px; height:60px; line-height:60px; text-align:center; font-size:30px; color:#FFF; position:absolute; left:50%; margin-left:-104px; top:50%;
+transform:scale(0);-webkit-transform:scale(0);-moz-transform:scale(0);-o-transform:scale(0);-ms-transform:scale(0);
+}
+.indexFlash .img1{position:absolute; left:0px; top:50%; width:100%; text-align:center; margin-top:-145px;}
+.indexFlash .liNow{z-index:2;}
+.indexFlash .liNow .img{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1);-ms-transform:scale(1);}
+.indexFlash .liNow .btn{margin-top:100px;
+transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1);-ms-transform:scale(1);}
+/**/
+.indexFlash .btnDiv{position:absolute; z-index:10; left:0px; bottom:50px; width:100%; text-align:center;}
+.indexFlash .btnDiv span{display:inline-block; background:url("../image/ico1.png")/*tpa=https://shanqb.com/image/ico1.png*/ center no-repeat; width:24px; height:24px;}
+.indexFlash .btnDiv .on{background:url("../image/ico1on.png")/*tpa=https://shanqb.com/image/ico1on.png*/ center no-repeat;}
+
+.indexDiv{height:940px;}
+.indexDiv .bg{position:relative; top:354px; background:url("../image/bg.gif")/*tpa=https://shanqb.com/image/bg.gif*/;}
+.indexDiv .wal{height:586px; position:relative;}
+
+.indexPart1{background:url("../image/indexPart1.jpg")/*tpa=https://shanqb.com/image/indexPart1.jpg*/ center no-repeat fixed; background-size:cover;}
+.indexPart1 .img{position:absolute; left:-125px; top:0px; background:url("../image/img687.png")/*tpa=https://shanqb.com/image/img687.png*/ left top no-repeat; width:687px; height:586px;}
+.indexPart1 .title{text-align:right; padding:90px 85px 0 0; height:138px; font-size:20px;}
+.indexPart1 h2{background:url("../image/indexPart1Title.png")/*tpa=https://shanqb.com/image/indexPart1Title.png*/ right top no-repeat; height:65px; line-height:300px; overflow:hidden;}
+.indexPart1 .list{width:370px; margin-left:auto;}
+.indexPart1 li{float:left; text-align:center; width:108px; font-size:14px; line-height:32px;}
+
+.indexPart2{background:url("../image/indexPart2.jpg")/*tpa=https://shanqb.com/image/indexPart2.jpg*/ center no-repeat fixed; background-size:cover;}
+.indexPart2 .title{text-align:center; padding:80px 0 0 0; height:118px; font-size:20px;}
+.indexPart2 h2{background:url("../image/indexPart2Title.png")/*tpa=https://shanqb.com/image/indexPart2Title.png*/ center top no-repeat; height:65px; line-height:300px; overflow:hidden;}
+.indexPart2 .img{background:url("../image/indexPart2.png")/*tpa=https://shanqb.com/image/indexPart2.png*/ center top no-repeat; height:388px;}
+
+.indexPart3{background:url("../image/indexPart3.jpg")/*tpa=https://shanqb.com/image/indexPart3.jpg*/ center no-repeat fixed; background-size:cover;}
+.indexPart3 .img{background:url("../image/indexPart3.png")/*tpa=https://shanqb.com/image/indexPart3.png*/ left top no-repeat; width:370px; height:474px; position:absolute; top:52px; right:60px;}
+.indexPart3 .title{padding:185px 0 0 83px; height:160px; font-size:20px; line-height:30px;}
+.indexPart3 h2{background:url("../image/indexPart3Title.png")/*tpa=https://shanqb.com/image/indexPart3Title.png*/ left top no-repeat; height:65px; line-height:300px; overflow:hidden; position:relative; left:-5px;}
+.indexPart3 li{float:left; text-align:center; width:108px; font-size:14px; line-height:32px; position:relative; left:63px;}
+
+.indexPart4{background:url("../image/indexPart4.jpg")/*tpa=https://shanqb.com/image/indexPart4.jpg*/ center no-repeat fixed; background-size:cover;}
+.indexPart4 .img{position:absolute; left:-60px; bottom:0px; background:url("../image/indexPart4.png")/*tpa=https://shanqb.com/image/indexPart4.png*/ left top no-repeat; width:869px; height:529px;}
+.indexPart4 .title{width:242px; margin-left:auto; padding-top:225px; font-size:20px; text-align:right;}
+.indexPart4 h2{background:url("../image/indexPart4Title.png")/*tpa=https://shanqb.com/image/indexPart4Title.png*/ center top no-repeat; height:65px; line-height:300px; overflow:hidden;}
+
+.indexPart5{background:url("../image/indexPart5.jpg")/*tpa=https://shanqb.com/image/indexPart5.jpg*/ center no-repeat fixed; background-size:cover;}
+.indexPart5 .img{background:url("../image/indexPart5.png")/*tpa=https://shanqb.com/image/indexPart5.png*/ left top no-repeat; width:453px; height:503px; position:absolute; left:33px; top:40px;}
+.indexPart5 .title{height:145px; text-align:right; font-size:20px; padding-top:145px;}
+.indexPart5 h2{background:url("../image/indexPart5Title.png")/*tpa=https://shanqb.com/image/indexPart5Title.png*/ right top no-repeat; height:65px; line-height:300px; overflow:hidden;}
+.indexPart5 .list{width:432px; margin-left:auto;}
+.indexPart5 li{width:120px; text-align:center; padding-left:24px; font-size:18px; line-height:36px; color:#666; float:left;}
+.indexPart5 li img{border:#ddd solid 1px;}
+
+.indexPart6{background:url("../image/indexPart6.jpg")/*tpa=https://shanqb.com/image/indexPart6.jpg*/ center no-repeat fixed; background-size:cover; height:586px;}
+.indexPart6 .title{height:85px; padding-top:87px;}
+.indexPart6 h2{background:url("../image/indexPart6Title.png")/*tpa=https://shanqb.com/image/indexPart6Title.png*/ center top no-repeat; height:65px; line-height:300px; overflow:hidden;}
+.indexPart6 .imgDiv{text-align:center;}
+
+.indexPart7{background:url("../image/indexPart7.jpg")/*tpa=https://shanqb.com/image/indexPart7.jpg*/ center top no-repeat; height:650px;}
+.indexPart7 .title{height:165px; padding-top:85px;}
+.indexPart7 h2{background:url("../image/indexPart7Title.png")/*tpa=https://shanqb.com/image/indexPart7Title.png*/ center top no-repeat; height:65px; line-height:300px; overflow:hidden;}
+.indexPart7 li{float:left; padding-right:24px;}
+.indexPart7 .list1{height:104px; padding-left:78px; overflow:hidden;}
+.indexPart7 .list2{height:104px; padding-left:35px; overflow:hidden;}
+.indexPart7 .list2 li{padding-right:13px;}
+
+.productDiv, .productDiv .wal2{height:710px; position:relative;}
+.productDiv .box{padding-top:110px; width:545px;}
+.productDiv h2{height:72px; line-height:300px; overflow:hidden;}
+.productDiv p{font-size:16px; line-height:28px; text-align:justify; color:#666;}
+
+.productPart1{background:url("../image/nimg1920_2.jpg")/*tpa=https://shanqb.com/image/nimg1920_2.jpg*/ center top no-repeat;}
+.productPart1 h2{background:url("../image/productTitle1.png")/*tpa=https://shanqb.com/image/productTitle1.png*/ left top no-repeat;}
+
+.productPart2{background:url("../image/nimg1920_3.jpg")/*tpa=https://shanqb.com/image/nimg1920_3.jpg*/ center top no-repeat;}
+.productPart2 h2{background:url("../image/productTitle2.png")/*tpa=https://shanqb.com/image/productTitle2.png*/ left top no-repeat;}
+.productPart2 .box{margin-left:auto; width:515px;}
+.productPart2 .list{width:535px; margin-left:auto; padding-top:25px;}
+.productPart2 li{float:left; text-align:center; width:108px; font-size:14px; line-height:32px;}
+
+.productPart3{background:url("../image/img1920_2.jpg")/*tpa=https://shanqb.com/image/img1920_2.jpg*/ center top no-repeat;}
+.productPart3 h2{background:url("../image/productTitle3.png")/*tpa=https://shanqb.com/image/productTitle3.png*/ left top no-repeat;}
+.productPart3 .box{width:450px;}
+.productPart3 .list li{float:left; padding-top:35px;}
+.productPart3 .list .li_01{position:relative; left:-10px;}
+
+.productPart4{background:url("../image/nimg1920_4.jpg")/*tpa=https://shanqb.com/image/nimg1920_4.jpg*/ center top no-repeat;}
+.productPart4 h2{background:url("../image/productTitle4.png")/*tpa=https://shanqb.com/image/productTitle4.png*/ left top no-repeat;}
+.productPart4 .box{margin-left:auto; width:420px; color:#FFF;}
+.productPart4 p{color:#FFF;}
+.productPart4 .list{position:absolute; left:320px; bottom:25px;}
+.productPart4 .list li{float:left; position:relative; z-index:2;}
+.productPart4 .list .li_01{left:-26px; z-index:1;}
+
+.job{text-align:center; color:#666;}
+.job .title{font-size:30px; line-height:46px; padding-top:90px;}
+.job .msg{font-size:20px; line-height:46px; padding-bottom:75px;}
+.job .wal{width:1080px;}
+.job li{float:left; width:360px; height:445px; overflow:hidden; cursor:pointer;}
+.job .imgDiv{height:238px; overflow:hidden; position:relative; padding-top:10px;}
+.job .imgDiv img{position:relative;}
+.job .name{font-size:20px; padding:0 0 10px 0;}
+.job .content{padding:0 67px 10px 67px; font-size:16px; line-height:24px;}
+.job .more a{font-size:16px; color:#65c5f9;}
+
+.jobLayer{background:url("../image/jobLayer.png")/*tpa=https://shanqb.com/image/jobLayer.png*/ left top no-repeat; width:1018px; height:642px; position:fixed; z-index:110; left:-150%; top:50%; margin-top:-321px; margin-left:-509px;}
+.jobLayer .title{text-align:center; height:117px; line-height:117px; position:relative; font-size:30px;}
+.jobLayer .title a{display:block; background:url("../image/nimg33.png")/*tpa=https://shanqb.com/image/nimg33.png*/ center no-repeat; width:33px; height:33px; position:absolute; top:20px; right:20px;}
+.jobLayer .list{position:relative; left:69px; width:174px; background:url("../image/jobBg1.png")/*tpa=https://shanqb.com/image/jobBg1.png*/ left top no-repeat; padding-top:5px;}
+.jobLayer .list li{border-bottom:#999 solid 1px; border-left:#999 solid 1px; height:43px; line-height:43px; text-align:center;}
+.jobLayer .list a{display:inline-block; height:43px; font-size:18px; padding:0 20px;}
+.jobLayer .list a:hover, .jobLayer .list .aNow{background:url("../image/ico8.png")/*tpa=https://shanqb.com/image/ico8.png*/ right center no-repeat; color:#ff6900;}
+.jobLayer .list .bg{background:url("../image/jobBg2.png")/*tpa=https://shanqb.com/image/jobBg2.png*/ left top no-repeat; height:10px;}
+.jobLayer .fr{padding:20px 90px 0 0; width:665px; height:447px; position:relative; overflow:hidden;}
+.jobLayer .scroll{height:427px; overflow:hidden; position:relative; display:none;}
+.jobLayer .content{width:620px; font-size:18px; line-height:28px;}
+
+.aboutTitle{height:173px; padding-top:62px; text-align:center; font-size:22px; line-height:25px; color:#666; letter-spacing:1px;}
+.aboutTitle h2{height:70px; line-height:300px; overflow:hidden;}
+
+.aboutPart1{height:800px; background:url("../image/aboutPart1.jpg")/*tpa=https://shanqb.com/image/aboutPart1.jpg*/ center bottom no-repeat;}
+.aboutPart1 .wal{width:1200px;}
+.aboutPart1 .aboutTitle h2{background:url("../image/aboutTitle1.png")/*tpa=https://shanqb.com/image/aboutTitle1.png*/ center top no-repeat;}
+.aboutPart1 .msg{font-size:20px; line-height:30px; text-indent:2em; padding-bottom:30px;}
+.aboutPart1 .content{text-align:justify; font-size:18px; line-height:30px; color:#666; padding-bottom:15px;}
+.aboutPart1 .fl{width:605px; position:relative; top:-5px;}
+
+.aboutPart2 .aboutTitle h2{background:url("../image/aboutTitle2.png")/*tpa=https://shanqb.com/image/aboutTitle2.png*/ center top no-repeat;}
+.aboutPart2 .wal{width:966px;}
+.aboutPart2 li{height:300px; position:relative; padding-left:483px;}
+.aboutPart2 .imgDiv{position:absolute; left:135px; top:0px;}
+.aboutPart2 .liOdd{padding:0 555px 0 0;}
+.aboutPart2 .liOdd .imgDiv{left:483px;}
+.aboutPart2 .name{font-size:24px; padding:30px 0 5px 0;}
+.aboutPart2 .msg{font-size:16px; line-height:36px;}
+.aboutPart2 .content{font-size:16px; line-height:30px; color:#666;}
+
+.aboutPart3{height:700px; background:url("../image/aboutPart1.jpg")/*tpa=https://shanqb.com/image/aboutPart1.jpg*/ center bottom no-repeat;}
+.aboutPart3 .aboutTitle h2{background:url("../image/aboutTitle3.png")/*tpa=https://shanqb.com/image/aboutTitle3.png*/ center top no-repeat;}
+.aboutPart3 .wal{width:1170px;}
+.aboutPart3 .list{padding-top:50px;}
+.aboutPart3 li{float:left; width:390px; position:relative; left:25px; height:330px;}
+.aboutPart3 .time{height:80px; font-size:14px;}
+.aboutPart3 .time b{font-size:50px; position:relative; top:-5px; left:10px;}
+.aboutPart3 .timeBg{background:url("../image/timeBg.png")/*tpa=https://shanqb.com/image/timeBg.png*/ left top no-repeat; width:47px; height:47px; position:absolute; left:50px; top:13px;}
+.aboutPart3 .name{font-size:20px; position:absolute; top:40px; right:45px; white-space:nowrap;}
+.aboutPart3 .imgDiv{background:url("../image/imgBg.png")/*tpa=https://shanqb.com/image/imgBg.png*/ left top no-repeat; height:210px; padding:3px 0 0 2px;}
+
+.aboutPart4 .aboutTitle h2{background:url("../image/aboutTitle4.png")/*tpa=https://shanqb.com/image/aboutTitle4.png*/ center top no-repeat;}
+.aboutPart4 .wal{width:1200px; height:694px;}
+.aboutPart4 .imgDiv{padding:10px; border:#e6e6e6 solid 2px;}
+.aboutPart4 .fr{width:560px;}
+.aboutPart4 .name{font-size:24px; color:#666; padding:60px 0 30px 0;}
+.aboutPart4 li{line-height:30px; font-size:20px; color:#888; min-height:30px; _height:30px; padding:0 0 16px 42px; position:relative;}
+.aboutPart4 li img{position:absolute; left:0px; top:0px;}
+
+.cooperationPart1{height:680px;}
+.cooperationPart1 .aboutTitle h2{background:url("../image/title1.png")/*tpa=https://shanqb.com/image/title1.png*/ center top no-repeat;}
+.cooperationPart1 .list{padding:70px 0 0 0; color:#666; font-size:20px; line-height:28px; text-align:center;}
+.cooperationPart1 li{float:left; width:280px; position:relative; left:40px;}
+.cooperationPart1 .imgDiv{height:210px;}
+.cooperationPart1 .li_01 .imgDiv{height:196px;}
+
+.cooperationPart2{background:url("../image/nimg1920_8.jpg")/*tpa=https://shanqb.com/image/nimg1920_8.jpg*/ center bottom no-repeat; height:680px;}
+.cooperationPart2 .aboutTitle h2{background:url("../image/title2.png")/*tpa=https://shanqb.com/image/title2.png*/ center top no-repeat;}
+.cooperationPart2 .wal3{height:680px; position:relative;}
+.cooperationPart2 .img{position:absolute; left:5px; bottom:15px;}
+.cooperationPart2 li{font-size:20px; line-height:40px; color:#666; padding-left:320px; background:url("../image/ico9.png")/*tpa=https://shanqb.com/image/ico9.png*/ 295px center no-repeat;}
+
+.cooperationPart3{background:url("../image/nimg1920_9.jpg")/*tpa=https://shanqb.com/image/nimg1920_9.jpg*/ center bottom no-repeat; height:680px;}
+.cooperationPart3 .aboutTitle h2{background:url("../image/title3.png")/*tpa=https://shanqb.com/image/title3.png*/ center top no-repeat;}
+.cooperationPart3 .list{width:1250px; position:relative; left:-25px; padding-top:100px; text-align:center;}
+.cooperationPart3 li{float:left; width:250px; font-size:20px; line-height:28px; color:#666;}
+.cooperationPart3 .msg{padding:20px 0 12px 0;}
+.cooperationPart3 .li_01 .msg{padding-bottom:26px;}
+
+.cooperationPart4{height:680px;}
+.cooperationPart4 .aboutTitle h2{background:url("../image/title4.png")/*tpa=https://shanqb.com/image/title4.png*/ center top no-repeat;}
+.cooperationPart4 .imgDiv{padding:10px; border:#e6e6e6 solid 2px;}
+.cooperationPart4 .fr{width:560px; padding-top:100px;}
+.cooperationPart4 li{line-height:60px; height:100px; font-size:22px; color:#888; padding:0 0 0 90px; position:relative;}
+.cooperationPart4 li img{position:absolute; left:0px; top:0px;}
+
+

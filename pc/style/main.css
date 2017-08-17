@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin:0px; padding:0px; font-size:12px; font-family:Arial, "微软雅黑"; color:#333;}
+a{color:#333; text-decoration:none; outline:none;}
+a:active{star:expression(this.onFocus=this.blur());} 
+img{border:0px;}
+a:link {text-decoration: none; outline:none;}
+a:visited{text-decoration: none; outline:none;}
+a:hover{text-decoration:none; color:#ff6900; outline:none;}
+ul, p, dl, dt, dd{padding:0px; margin:0px;}
+li{list-style-position:outside; list-style-type:none;}
+h1, h2, h3, h4, h5{font-size:14px; padding:0px; margin:0px;}
+h1{font-size:16px;}
+h5{font-size:12px;}
+.fl{float:left;}
+.fr{float:right;}
+.clear_f{clear:both; height:0px; padding:0px; margin:0px; display:block; _display:inherit;}
+.h10{height:10px; overflow:hidden; clear:both;}
+.h50{height:50px; overflow:hidden; clear:both;}
+input{background:transparent; padding:0px; font-size:12px; font-family:Arial, "微软雅黑"; color:#888; outline:none; border:0px;}
+em{font-style:normal;}
+.btn1{cursor:pointer;}
+.orange{color:#ff6900;}
+
+.wal{width:1130px; margin:0px auto;}
+.wal2{width:1000px; margin:0px auto;}
+.wal3{width:1200px; margin:0px auto;}
+
+.headDiv{height:100px; position:fixed; z-index:30; left:0px; top:0px; width:100%;}
+#headDiv{position:fixed;}
+.headDiv .wal{height:100px; position:relative;}
+.headDiv .logo{display:block; background:url("../image/logo3.png")/*tpa=https://shanqb.com/image/logo3.png*/ left top no-repeat; width:176px; height:60px; position:absolute; left:45px; top:20px;}
+.nav{position:absolute; top:0px; right:15px;}
+.nav li{float:left; padding:0 30px;}
+.nav a{display:block; height:100px; line-height:100px; font-size:20px; color:#FFF; float:left; white-space:nowrap;}
+.headDiv, .headDiv a{
+transition:All 1s ease;
+-webkit-transition:All 0.5s ease;
+-moz-transition:All 0.5s ease;
+-o-transition:All 0.5s ease;
+}
+.headDiv2{background:#FFF; border-bottom:#f1f1f1 solid 1px;}
+.headDiv2 .logo{background:url("../image/logo.png")/*tpa=https://shanqb.com/image/logo.png*/ left top no-repeat;}
+.headDiv2 .nav a{color:#333;}
+.headDiv2 .nav .aNow, .headDiv2 .nav a:hover{color:#ff6900;}
+
+.footDiv{background:url("../image/foot.jpg")/*tpa=https://shanqb.com/image/foot.jpg*/ top repeat-x; height:388px;}
+.footDiv .list{float:left; width:500px; height:308px;}
+.footDiv .list2{width:375px;}
+.footDiv .list3{width:255px;}
+.footDiv h2{font-weight:400; font-size:20px; padding:72px 0 18px 0;}
+.footDiv li{height:40px; line-height:40px; overflow:hidden; font-size:16px; position:relative; padding-left:34px;}
+.footDiv li img{position:absolute; left:0px; top:8px;}
+.footDiv .list1 h2{padding:90px 0 18px 0;}
+.footDiv .list1 li{padding-left:30px; background:url("../image/ico2.png")/*tpa=https://shanqb.com/image/ico2.png*/ left center no-repeat;}
+.footDiv .list1 .li_01{font-size:12px;}
+.footDiv .list2 li b{font-weight:400; font-size:24px;}
+.footDiv .content{line-height:80px; text-align:center; font-size:14px;}
+
+.pageBanner{height:600px;}
+
+#Layer1{
+	position:fixed;
+	width:100%; height:100%;
+	z-index:99;
+	top:0; left:0px;
+	background-color:#000;
+	display:none;
+}
+
+.pageTransition1{
+transition:All 1s ease;
+-webkit-transition:All 1s ease;
+-moz-transition:All 1s ease;
+-o-transition:All 1s ease;
+}
+.pageTransition2{
+transition:All 2s ease;
+-webkit-transition:All 2s ease;
+-moz-transition:All 2s ease;
+-o-transition:All 2s ease;
+}
+

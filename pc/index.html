@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>发发钱包</title>
+<link href="style/main.css" rel="stylesheet" type="text/css" />
+<link href="style/index.css" rel="stylesheet" type="text/css" />
+<link href="style/media.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="script/jquery-1.7.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="script/easing.js"></script>
+<script language="javascript" type="text/javascript" src="script/js.js"></script>
+<script language="javascript" type="text/javascript" src="script/fun.js"></script>
+<script language="javascript" type="text/javascript" src="script/form.js"></script>
+<script language="javascript" type="text/javascript" src="script/jquery.SuperSlide.2.1.1.js"></script>
+<script src="script/jquery.fadethis.min.js"></script>
+</head>
+
+<body>
+<div class="headDiv" id="headDiv">
+<div class="wal">
+      <a href="index.html" class="logo"></a>
+      <ul class="nav">
+        <li><a href="index.html" class="aNow">首页</a></li>
+        <li><a href="product.html">产品介绍</a></li>
+        <li><a href="about.html">公司介绍</a></li>
+      </ul>
+</div>
+</div>
+
+<div class="indexFlash">
+     <div class="bd">
+     <ul>
+       <li>
+           <div class="img" style="background:url(image/img1920.jpg) center no-repeat; background-size:cover;"></div>
+           <div class="img1"><img src="image/img769.png"/></div>
+           <a href="javascript:;" class="btn pageTransition2">立即下载</a>
+       </li>
+       <li>
+           <div class="img" style="background:url(image/img1920_3.jpg) center no-repeat; background-size:cover;"></div>
+           <div class="img1"><img src="image/img714.png" /></div>
+       </li>
+     </ul>
+     </div>
+     <div class="btnDiv"></div>
+</div>
+<script type="text/javascript">
+indexFlashFun();
+$(window).resize(function(){
+	indexFlashFun();
+	})
+function indexFlashFun(){
+	var bodyH=$(window).height();
+	$('.indexFlash').height(bodyH);
+	$('.indexFlash').find('li').height(bodyH);
+	//$('.indexFlash').find('.img').height(bodyH);
+	}
+$(function(){
+	$(".indexFlash").slide({titCell:".btnDiv",mainCell:".bd ul",autoPage:true,effect:"fade",autoPlay:true,mouseOverStop:false,interTime:7000,
+	   startFun:function(i,c){
+		   $(".indexFlash").find('li').removeClass('liNow');
+		   },
+	   endFun:function(i,c){
+		   $(".indexFlash").find('li').eq(i).addClass('liNow');
+		   }
+	   });
+	})
+</script>
+
+<div class="indexDiv indexPart1">
+<div class="bg">
+<div class="wal">
+      <div class="img"></div>
+      <div class="title">
+        <div class="slide-top">
+        <h2>实时授信</h2>
+        <p>0担保，在线召唤信用额度</p>
+        </div>
+      </div>
+      <div class="list">
+        <ul class="slide-bottom">
+          <li>
+            <div><img src="image/img69_1.png" /></div>0担保无抵押
+          </li>
+          <li>
+            <div><img src="image/img69_2.png" /></div>在线信用评估 
+          </li>
+          <li>
+            <div><img src="image/img69_3.png" /></div>额度不够再提
+          </li>
+        </ul>
+      </div>
+</div>
+</div>
+</div>
+
+<div class="indexDiv indexPart2">
+<div class="bg">
+<div class="wal">
+      <div class="title">
+         <div class="slide-bottom">
+         <p>一键借款，光速放款，利率最低！</p>
+         </div>
+      </div>
+      <div class="img"></div>
+</div>
+</div>
+</div>
+
+<div class="indexDiv indexPart3">
+<div class="bg">
+<div class="wal">
+      <div class="title">
+         <div class="slide-top">
+         <h2>自由分期</h2>
+         <p>超灵活-1-12期分期、更<br />省钱-超低分期费率</p>
+         </div>
+      </div>
+      <div class="list">
+        <ul class="slide-bottom">
+          <li>
+            <div><img src="image/img69_4.png" /></div>自由分期还款
+          </li>
+          <li>
+            <div><img src="image/img69_5.png"/></div>分期费率低 
+          </li>
+        </ul>
+      </div>
+      <div class="img"></div>
+</div>
+</div>
+</div>
+
+<div class="indexDiv indexPart4">
+<div class="bg">
+<div class="wal">
+      <div class="title">
+        <div class="slide-left">
+        <h2>还款便捷</h2>
+        <p>短信提醒，还款多渠道</p>
+        </div>
+      </div>
+      <div class="img"></div>
+</div>
+</div>
+</div>
+
+<div class="indexDiv indexPart5">
+<div class="bg">
+<div class="wal">
+     <div class="img"></div>
+     <div class="title">
+       <div class="slide-top">
+       <h2>精彩尽在掌中</h2>
+       <p>先消费，后还款，全网一键直达，慧生活，惠享受</p>
+       </div>
+     </div>
+     <div class="list">
+       <ul class="slide-bottom">
+         <li>
+           <div><img src="" /></div>IOS版
+         </li>
+         <li>
+           <div><img src="" /></div>Android版
+         </li>
+         <li>
+           <div><img src="" /></div>微信版
+         </li>
+       </ul>
+     </div>
+</div>
+</div>
+</div>
+<div style="background:url(image/img1920_1.jpg) center no-repeat fixed; background-size:cover; height:354px;"></div>
+<!-- 
+<div class="indexPart6">
+     <div class="title"><h2 class="slide-top">适用商家</h2></div>
+     <div class="slide-bottom"><div class="imgDiv"><img src="image/img675.png" /></div></div>
+</div>
+ -->
+<div class="indexPart7">
+<div class="wal">
+     <div class="title"><h2 class="slide-top">发发钱包朋友圈</h2></div>
+     <div class="list1">
+       <ul class="slide-bottom">
+         <li><a href="javascript:;"><img src="image/img70_1.jpg" /></a></li>
+         <li><a href="javascript:;"><img src="image/img70_2.jpg" /></a></li>
+         <li><a href="javascript:;"><img src="image/img70_3.jpg" /></a></li>
+         <li><a href="javascript:;"><img src="image/img70_4.jpg" /></a></li>
+         <li><a href="javascript:;"><img src="image/img70_5.jpg" /></a></li>
+         <li><a href="javascript:;"><img src="image/img70_6.jpg" /></a></li>
+       </ul>
+     </div>
+     <div class="list2">
+       <ul class="slide-bottom">
+         <li><a href="javascript:;"><img src="image/img70_7.jpg" /></a></li>
+         <li><a href="javascript:;"><img src="image/img70_8.jpg" /></a></li>
+         <li><a href="javascript:;"><img src="image/img70_9.jpg" /></a></li>
+         <li><a href="javascript:;"><img src="image/img70_10.jpg" /></a></li>
+       </ul>
+     </div>
+</div>
+</div>
+
+<div class="footDiv">
+<div class="wal">
+    <div class="list list1">
+       <h2>网站公告</h2>
+       <ul>
+         <li>客服热线更改为010-80697362</li>
+         <li class="li_01">闪白条携手驴妈妈推出“小驴白条”</li>
+         <li class="li_01">闪白条获上市集团汉鼎股份千万级A轮融资</li>
+       </ul>
+    </div>
+    <div class="list list2">
+       <h2>客户服务</h2>
+       <ul>
+         <li><img src="image/ico3.png"/><b>010 - 80697362</b></li>
+         <li><img src="image/ico4.png"/>周一至周五 9：00--18：00</li>
+         <li><img src="image/ico5.png"/>service@shanqb.com</li>
+       </ul>
+    </div>
+    <div class="list list3">
+       <h2>商务合作</h2>
+       <ul>
+         <li><img src="image/ico6.png" />联系人：刘女士</li>
+         <li><img src="image/ico7.png" />010 - 56139792</li>
+         <!--<li><img src="image/ico5.png"/>liuhanlei@shanqb.com</li>-->
+       </ul>
+    </div>
+    <div class="content">浙江熊猫软件开发有限公司  |  京ICP备14061532号-2</div>
+</div>
+</div>
+<script>$(window).fadeThis();</script>
+</body>
+</html>
