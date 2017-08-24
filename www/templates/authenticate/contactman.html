@@ -5,7 +5,7 @@
         <div class="list">
             <div class="item item-select">
                 <span class="input-label">关系</span>
-                <select>
+                <select ng-model="params.linkRelateFir">
                     <option>父女</option>
                     <option>兄弟</option>
                     <option>姐妹</option>
@@ -13,18 +13,18 @@
             </div>
             <div class="item item-input">
                 <span class="input-label">联系人姓名</span>
-                <input type="text" placeholder="请输入所选联系人的姓名" name="name1" ng-model="params.name1" validator="required">
+                <input type="text" placeholder="请输入所选联系人的姓名" name="linkNameFir" ng-model="params.linkNameFir" validator="required">
             </div>
             <div class="item item-input">
                 <span class="input-label">联系人电话</span>
-                <input type="text" placeholder="请输入联系人电话" name="phone1" ng-model="params.phone1" validator="required,phone">
+                <input type="text" placeholder="请输入联系人电话" name="linkMobileFir" ng-model="params.linkMobileFir" validator="required,phone">
             </div>
         </div>
         <p style="margin-top:-10px;padding-left:16px;color:#999999;">联系人二</p>
         <div class="list">
             <div class="item item-select">
                 <span class="input-label">关系</span>
-                <select>
+                <select ng-model="params.linkRelateSec">
                     <option>父女</option>
                     <option>兄弟</option>
                     <option>姐妹</option>
@@ -32,20 +32,20 @@
             </div>
             <div class="item item-input">
                 <span class="input-label">联系人姓名</span>
-                <input type="text" placeholder="请输入所选联系人的姓名" name="name2" ng-model="params.name2" validator="required">
+                <input type="text" placeholder="请输入所选联系人的姓名" name="linkNameSec" ng-model="params.linkNameSec" validator="required">
             </div>
             <div class="item item-input">
                 <span class="input-label">联系人电话</span>
-                <input type="text" placeholder="请输入联系人电话" name="phone2" ng-model="params.phone2" validator="required,phone">
+                <input type="text" placeholder="请输入联系人电话" name="linkMobileSec" ng-model="params.linkMobileSec" validator="required,phone">
             </div>
         </div>
         <p style="margin-top:-10px;padding-left:16px;color:#999999;">其他身份信息</p>
         <div class="list">
             <div class="item item-select">
                 <span class="input-label">从事行业</span>
-                <select>
-                    <option selected>计算机</option>
-                    <option >医学</option>
+                <select ng-model="params.work">
+                    <option>计算机</option>
+                    <option>医学</option>
                     <option>教育</option>
                 </select>
             </div>
@@ -55,8 +55,8 @@
             </div>
             <div class="item item-select">
                 <span class="input-label">学历</span>
-                <select>
-                    <option selected>大专</option>
+                <select ng-model="params.education">
+                    <option>大专</option>
                     <option>本科</option>
                     <option>硕士</option>
                 </select>

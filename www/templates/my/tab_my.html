@@ -2,12 +2,12 @@
     <ion-content class="stable-bg">
         <div class="auth_top text-center" style="background:#ffc68f;">
             <h4 class="light">当前待还金额</h4>
-            <span class="auth_limit">{{userInfosession.payAmount | number:2}}</span>
-            <p class="light">还款日：<span ng-bind="userInfosession.payDate"></span></p>
+            <span class="auth_limit">{{data.totalMoney | number:2}}</span>
+            <p class="light">还款日：<span ng-bind="data.repaymentDate"></span></p>
         </div>
         <div class="item item-avatar item-icon-right bordernone" ui-sref="usersetting">
             <img src="img/avatar.png">
-            <h2 ng-bind="userInfosession.phone | mphone"></h2>
+            <h2 ng-bind="data.phone | mphone"></h2>
             <p><span class="my_border">已认证</span></p>
             <i class="icon" style="font-size: 16px; color: #999; padding-right: 30px;">账户设置<i style="right: 0px;" class="icon ion-ios-arrow-right"></i></i>
         </div>
@@ -15,7 +15,7 @@
             <div class="item item-icon-left item-icon-right" ui-sref="loanlist">
                 <i class="icon"><img src="img/icon_loan.png" alt="借款记录"></i>
                 <h2 class="padding-left">借款记录</h2>
-                <i class="badge badge-assertive" style="margin-right:0.1rem;" ng-bind="userInfosession.msgNum"></i>
+                <i class="badge badge-assertive" style="margin-right:0.1rem;" >2</i>
                 <i class="icon ion-ios-arrow-right"></i>
             </div>
             <div class="item item-icon-left item-icon-right" ui-sref="interestfree">

@@ -712,7 +712,7 @@ input[type="radio"] {
 }
 .auth_main .row {
   padding: 0;
-  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
 }
 .auth_main .row .col {
   border-right: 1px solid #dbdbdb;

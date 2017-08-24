@@ -42,7 +42,7 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             }
         });
         //基础路劲配置
-        $rootScope.baseUrl = "/apis/jiahong-web/user/";
+        $rootScope.baseUrl = "/apis/jiahong-web/";
         //点击按钮倒计时
         $rootScope.timer = function(time, buttonid) {
             var btn = $(buttonid);
@@ -79,6 +79,9 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
         $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
         $ionicConfigProvider.platform.ios.views.transition('ios');
         $ionicConfigProvider.platform.android.views.transition('android');
+        //设置$stateProvider.state中定义的templateUrls最大预加载模板数量
+        $ionicConfigProvider.platform.ios.templates.maxPrefetch(5);
+        $ionicConfigProvider.platform.android.templates.maxPrefetch(5);
         $ionicConfigProvider.scrolling.jsScrolling(true);
         //ionic路由
         $stateProvider
@@ -114,6 +117,7 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             })
             .state('tab.authenticate',{//认证
               url:'/authenticate',
+              cache: false,
               views:{
                   'tab-authenticate':{
                       templateUrl:'templates/authenticate/tab_authenticate.html',
@@ -177,7 +181,7 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
                 controller: 'HelpcenterCtrl'
             })
             .state('helpdetail', {//帮助中心详情
-                url: '/helpdetail?id',
+                url: '/helpdetail?item',
                 templateUrl: 'templates/my/helpdetail.html',
                 controller: 'HelpdetailCtrl'
             })
@@ -188,16 +192,19 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             })
             .state('mymsg', {//我的消息
                 url: '/mymsg',
+                cache: false,
                 templateUrl: 'templates/my/mymsg.html',
                 controller: 'MymsgCtrl'
             })
             .state('interestfree', {//免息券
                 url: '/interestfree',
+                cache: false,
                 templateUrl: 'templates/my/interestfree.html',
                 controller: 'InterestfreeCtrl'
             })
             .state('loanlist', {//借款记录
                 url: '/loanlist',
+                cache: false,
                 templateUrl: 'templates/my/loanlist.html',
                 controller: 'LoanlistCtrl'
             })

@@ -1,7 +1,48 @@
 angular.module('authenticate.controllers', [])
-    .controller('AuthenticateCtrl', ['$scope', function($scope){
-        console.log("AuthenticateCtrl");
+    //认证
+    .controller('AuthenticateCtrl', ['$scope','$state','Services','$ionicLoading', function($scope,$state,Services,$ionicLoading){
+        $scope.$on('$ionicView.beforeEnter',function(){
+            if(!sessionStorage.token || sessionStorage.token == 'null'){
+                $state.go('login');
+            };
+        });
+        $scope.auth = [
+        {"lable":"IDCARD_REALNAME","status":0,"className":"no_auth","text":"未认证"},
+        {"lable":"BANK_CARD_AUTH","status":0,"className":"no_auth","text":"未认证"},
+        {"lable":"EMERGENCY_CONTACT","status":0,"className":"no_auth","text":"未认证"},
+        {"lable":"ZHIMA_AUTH","status":0,"className":"no_auth","text":"未认证"},
+        {"lable":"PHONENUM_INFO","status":0,"className":"no_auth","text":"未认证"},
+        {"lable":"IDCARD_REALNAME","status":0,"className":"no_auth","text":"未认证"}
+        ]
+        //获取用户认证状态
+        Services.ionicLoading();
+        Services.getData("auth/authinfo", {}).success(function(data) {
+            $ionicLoading.hide();
+            if (data.code == 0) {
+                var list = data.data.list? data.data.list : [];
+                for(var i=0; i<list.length; i++){
+                    for(var j = 0; j<$scope.auth.length; j++){
+                          if(list[i].itemLable == $scope.auth[j].lable && list[i].status == 1){
+                              $scope.auth[j].status = 1;
+                              $scope.auth[j].className = "is_auth";
+                              $scope.auth[j].text = "已认证";
+                          }
+                    }
+                }
+                console.log($scope.auth);
+            } else {
+                Services.ionicpopup('提示信息', data.msg);
+            }
+        });
+
+        $scope.authClick = function(status,url){
+            if(status == 0){//未认证
+                $state.go(url);
+            }
+        }
+
     }])
+    //身份认证
     .controller('IdcardCtrl', ['$scope','$ionicActionSheet','$state','Services','$ionicLoading', function($scope,$ionicActionSheet,$state,Services,$ionicLoading){
         console.log("IdcardCtrl");
         $scope.imgarrs = ["","",""];
@@ -54,6 +95,7 @@ angular.module('authenticate.controllers', [])
             });
         };
     }])
+    //人脸识别
     .controller('BankmangeCtrl', ['$scope','$ionicPopup','$state', function($scope,$ionicPopup,$state){
         console.log("BankmangeCtrl");
         $scope.faceModalOk = function(){
@@ -86,29 +128,32 @@ angular.module('authenticate.controllers', [])
             $scope.faceModalOk();
         };
     }])
+    //紧急联系人
     .controller('ContactmanCtrl',['$scope', '$state','Services','$ionicLoading', function($scope,$state,Services,$ionicLoading){
         console.log("ContactmanCtrl");
         $scope.params = {};
         //提交信息
         $scope.submit = function(){
             //获取用户信息
-            Services.getData("A001", $scope.params).success(function(data) {
+            Services.ionicLoading();
+            Services.getData("user/addemergencycontact", $scope.params).success(function(data) {
                 $ionicLoading.hide();
-                console.log($scope.params);
-                if (data.respHead.respCode == "000000") {
+                if (data.code == 0) {
                     $state.go("mobileservice");
                 } else {
-                    Services.ionicpopup('提示信息', data.respHead.respMsg);
+                    Services.ionicpopup('提示信息', data.msg);
                 }
             });
         };
     }])
+    //芝麻信用
     .controller('ZhimaCtrl', ['$scope','$state', function($scope,$state){
         console.log("ZhimaCtrl");
         $scope.zhimaClick = function(){
             $state.go('zhimaok');
         }
     }])
+    //手机运营商
     .controller('MobileserviceCtrl', ['$scope', '$state','Services','$ionicLoading','$rootScope', function($scope,$state,Services,$ionicLoading,$rootScope){
         console.log("MobileserviceCtrl");
         $scope.params = {};
@@ -147,9 +192,11 @@ angular.module('authenticate.controllers', [])
             });
         };
     }])
+    //车辆认证
     .controller('CarinfoCtrl', ['$scope', function($scope){
         console.log("CarinfoCtrl");
     }])
+    //社保认证
     .controller('SocialCtrl', ['$scope', function($scope){
         console.log("SocialCtrl");
     }])

@@ -6,9 +6,9 @@
     <ion-content class="stable-bg" style="margin-top:130px">
         <p style="margin-top:10px;padding-left:16px;color:#999999;">常见问题</p>
         <div class="list">
-            <div class="item item-icon-right" ui-sref="helpdetail({id:$index})" ng-repeat="item in data">
-                <h2 class="cs6" ng-bind="item.title"></h2>
-                <i class="icon ion-ios-arrow-right"></i>
+            <div class="item item-icon-right" ng-repeat="item in data">
+                <h2 class="cs6" ng-bind="item.questionType"></h2>
+                <i class="icon ion-ios-arrow-right" ng-click="viewDetail(item)"></i>
             </div>
         </div>
     </ion-content>
