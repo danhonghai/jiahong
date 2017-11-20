@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/validate.css">
+    <title>注册</title>
+  </head>
+  <body>
+  	<div class="register">
+  		<!-- <img src="image/register.png" alt=""> -->
+  		<div class="register-box">
+  			<p class="title">马上注册</p>
+  			<form class="register-form" id="form1">
+  				<div class="form-input">
+  					<input type="text" class="textInput" placeholder="请输入您的手机号" data-required="true" id="telphone" data-pattern="^0?1[3|4|5|8][0-9]\d{8}$" data-descriptions="telphone">
+  				</div>
+  				<div class="form-input" style="position:relative;">
+  					<input type="text" class="textInput" placeholder="请输入验证码" id="phoneyzm" data-required="true" data-descriptions="phoneyzm" >
+  					<button type="button" class="code" id="code" >获取验证码</button>
+  				</div>
+  				<div class="form-input">
+  					<input type="password" class="textInput" placeholder="请输入密码" data-required="true" data-descriptions="password"  data-pattern="^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$" id="pwd">
+  				</div>
+  				<div class="form-input">
+  					<input type="password" class="textInput" placeholder="请再次输入密码" data-required="true" data-descriptions="confirmpassword" data-conditional="confirmpwd" id="confirmpwd">
+  				</div>
+  				<div class="form-input">
+  					<input type="text" class="textInput" placeholder="请输入邀请码" id="inviteCode" data-pattern="^0?1[3|4|5|8][0-9]\d{8}$" data-descriptions="inviteCode">
+  				</div>
+  				<div class="form-input protocol">
+  					<input type="checkbox" class="ckbox" checked data-required="true" data-descriptions="ckbox" name="ckbox">
+  					我已阅读，并同意 <a href="contract.html" class="link">《发发钱包用户使用协议》</a>
+  				</div>
+  				<div class="form-input">
+            <input type="submit" id="regBtn" value="马上领取注册" class="regBtn">
+  				</div>
+  			</form>
+  			<div class="activity">
+  				<p><img src="image/active.png" alt="活动规则" style="height:14px;"></p>
+  				<ul>
+  					<li>1、注册成功的用户自动得到一张7天免息券，使用时最多可以叠加两张</li>
+  					<li>2、用户可以把注册链接分享给好友,当每一个好友注册成功后，分享者获得一张7天免息券(最多可获得两张免息券)。</li>
+  				</ul>
+  			</div>
+  		</div>
+  	</div>
+    <div class="dialogWrap" id="dialogWrap">
+        <div class="dialogBody">
+            <div class="dialog_content">注册完成，请下载APP完成实名认证，获取500-5000元的借款额度</div>
+            <div class="dialogBtn">
+                <a href="appdown.html">确定</a>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.js"></script>
+  	<script src="js/jquery-mvalidate.js"></script>
+  	<script>
+      var baseUrl = "apis/jiahong-web/";
+      $(function(){
+          //读取地址栏inviteCode
+          var inviteCode = getQueryString('inviteCode');
+          if(inviteCode){
+              $('#inviteCode').val(inviteCode).attr('disabled',true);
+          }
+          $("#code").on("click", function() {
+              var phone = $.trim($("#telphone").val());
+              if (!phone) {
+                  $.mvalidateTip("请输入手机号码！");
+                  return;
+              } else if (!/^0?1[3|4|5|8]\d{9}$/.test(phone)) {
+                  $.mvalidateTip("你输入的手机号码不正确！");
+                  return;
+              };
+              var params ={
+                  mobile: phone,
+                  tempId:"1"
+              };
+              $.ajax({
+                  url: baseUrl+"user/sendsms",
+                  type: "post",
+                  dataType: 'json',
+                  contentType: "application/json",
+                  data: JSON.stringify(params),
+                  success: function(data) {
+                      if (data.code == 0) {
+                          sendCode(60);
+                      } else {
+                          $.mvalidateTip("验证码发送失败，请重试！");
+                      }
+                  }
+              });
+
+          });
+
+          //添加表单校验
+          $("#form1").mvalidate({
+              type: 1,
+              onKeyup: true,
+              sendForm: false,
+              firstInvalidFocus: false,
+              valid: function(event, options) {
+                  //点击提交按钮时,表单通过验证触发函数
+                  // alert("验证通过！接下来可以做你想做的事情啦！");
+                  saveRegister();
+                  event.preventDefault();
+              },
+              conditional:{
+                confirmpwd:function(){
+                    return $("#pwd").val()==$("#confirmpwd").val();
+                }
+              },
+              descriptions: {
+                  username: {
+                      required: '请输入用户名'
+                  },
+                  telphone: {
+                      required: '请输入手机号码',
+                      pattern: '你输入的手机格式不正确'
+                  },
+                  phoneyzm: {
+                      required: '请输入验证码'
+                  },
+                  password:{
+                       required : '请输入密码',
+                      pattern: '密码为6到16为数字字母组合'
+                  },
+                  confirmpassword:{
+                      required : '请再次输入密码',
+                      conditional : '两次密码不一样'
+                  },
+                  inviteCode: {
+                      pattern: '邀请码格式格式不正确'
+                  },
+                  ckbox:{
+                      required : '请勾选协议'
+                  }
+              }
+          });
+      });
+      
+      //倒计时
+  		function sendCode(time){
+            var btn = $('#code');
+            btn.attr("disabled", true); //按钮禁止点击
+            btn.html(time <= 0 ? "发送动态密码" : ("" + (time) + "秒后可发送"));
+            var hander = setInterval(function() {
+                if (time <= 0) {
+                    clearInterval(hander); //清除倒计时
+                    btn.html("发送验证码");
+                    btn.attr("disabled", false);
+                    return false;
+                } else {
+                    btn.html("" + (time--) + "秒后可发送");
+                }
+            }, 1000);
+  		}
+      
+      //提交注册
+      function saveRegister(){
+            var params = {
+                mobile:$.trim($('#telphone').val()),
+                password:$.trim($('#pwd').val()),
+                tempId:"1",
+                verifyCode:$.trim($('#phoneyzm').val()),
+                inviteCode:$.trim($('#inviteCode').val()),
+                regSource:"weixin"
+            }
+            $.ajax({
+                  url: baseUrl+"user/weixinReg",
+                  type: "post",
+                  dataType: 'json',
+                  contentType: "application/json",
+                  data: JSON.stringify(params),
+                  success: function(data) {
+                      if (data.code == 0) {
+                          $('#dialogWrap').show();
+                      } else {
+                          $.mvalidateTip(data.msg);
+                      }
+                  }
+            });
+
+      }
+      //获取地址栏参数
+      function getQueryString(param,searchStr) {
+          var searchStr = searchStr || window.location.search;
+          if (searchStr.length == 0) {
+              return
+          };
+
+          if (typeof param === 'string') { // 直接字符串读取
+              //返回请求的参数值
+              var REP = new RegExp("(^|&|\\?)" + param + "=(.*?)($|\&|#)");
+              var value = searchStr.match(REP);
+              return value && decodeURIComponent(value[2]);
+          }
+
+          //返回当前 search 的所有参数名值对象
+          var objParam = {};
+          var param = searchStr.replace(/^\?/, '').split('&');
+          for (var i = 0, j = param.length; i < j; i++) {
+              var x = param[i].split('=');
+              objParam[decodeURIComponent(x[0])] = decodeURIComponent(x[1]);
+          }
+
+          return objParam;
+      }
+  	</script>
+  </body>
+</html>

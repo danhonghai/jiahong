@@ -10,11 +10,11 @@
              -->
             <div class="item item-input">
                 <span class="input-label">姓名</span>
-                <input type="text" placeholder="请输入真实姓名" name="name" ng-model="params.name" validator="required">
+                <input type="text" placeholder="请输入真实姓名" name="realName" ng-model="params.realName" validator="required">
             </div>
             <div class="item item-input">
                 <span class="input-label">身份证</span>
-                <input type="text" placeholder="请输入身份证号" name="idCard" ng-model="params.idCard" validator="required,idCard">
+                <input type="text" placeholder="请输入身份证号" name="idno" ng-model="params.idno" validator="required,idCard">
             </div>
             <div class="item item-input">
                 <span class="input-label">身份证上传</span>
@@ -25,7 +25,7 @@
             </div>
             <div class="item item-input">
                 <span class="input-label">手持证件照</span>
-                <img src="img/photo.png" alt="人脸识别" style="margin-left: 27px;" ng-click="show(3)">
+                <img src="img/photo.png" alt="手持证件照" style="margin-left: 27px;" ng-click="show(3)">
             </div>
             <!-- <div class="item padding0">
                 <div class="row padding0">
@@ -43,19 +43,17 @@
         <div class="list">
             <div class="item item-select">
                 <span class="input-label">开户行</span>
-                <select>
-                    <option selected>建设银行</option>
-                    <option>农业银行</option>
-                    <option>招商银行</option>
+                <select ng-model="selectBank.bank">
+                    <option ng-repeat="bank in bankAll" ng-value="bank.id+','+bank.bankName" ng-bind="bank.bankName"></option>
                 </select>
             </div>
             <div class="item item-input">
                 <span class="input-label">银行卡</span>
-                <input type="text" placeholder="请输入银行卡号" name="cardno" ng-model="params.cardno" validator="required,bankCard">
+                <input type="text" placeholder="请输入银行卡号" name="bankCard" ng-model="params.bankCard" validator="required,bankCard">
             </div>
             <div class="item item-input">
                 <span class="input-label">预留手机</span>
-                <input type="text" placeholder="请输入预留手机" name="phone" ng-model="params.phone" validator="required,phone">
+                <input type="text" placeholder="请输入预留手机" name="mobile" ng-model="params.mobile" validator="required,phone">
             </div>
         </div>
         <div class="btn90">

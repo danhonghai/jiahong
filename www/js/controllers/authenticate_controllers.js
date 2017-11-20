@@ -1,54 +1,60 @@
 angular.module('authenticate.controllers', [])
     //认证
-    .controller('AuthenticateCtrl', ['$scope','$state','Services','$ionicLoading', function($scope,$state,Services,$ionicLoading){
-        $scope.$on('$ionicView.beforeEnter',function(){
-            if(!sessionStorage.token || sessionStorage.token == 'null'){
-                $state.go('login');
-            };
-        });
-        $scope.auth = [
-        {"lable":"IDCARD_REALNAME","status":0,"className":"no_auth","text":"未认证"},
-        {"lable":"BANK_CARD_AUTH","status":0,"className":"no_auth","text":"未认证"},
-        {"lable":"EMERGENCY_CONTACT","status":0,"className":"no_auth","text":"未认证"},
-        {"lable":"ZHIMA_AUTH","status":0,"className":"no_auth","text":"未认证"},
-        {"lable":"PHONENUM_INFO","status":0,"className":"no_auth","text":"未认证"},
-        {"lable":"IDCARD_REALNAME","status":0,"className":"no_auth","text":"未认证"}
-        ]
+    .controller('AuthenticateCtrl', ['$scope','$state','Services','$location', function($scope,$state,Services,$location){
+
         //获取用户认证状态
-        Services.ionicLoading();
-        Services.getData("auth/authinfo", {}).success(function(data) {
-            $ionicLoading.hide();
+        Services.getData("auth/identifyStatus", {}).success(function(data) {
             if (data.code == 0) {
-                var list = data.data.list? data.data.list : [];
-                for(var i=0; i<list.length; i++){
-                    for(var j = 0; j<$scope.auth.length; j++){
-                          if(list[i].itemLable == $scope.auth[j].lable && list[i].status == 1){
-                              $scope.auth[j].status = 1;
-                              $scope.auth[j].className = "is_auth";
-                              $scope.auth[j].text = "已认证";
-                          }
-                    }
-                }
-                console.log($scope.auth);
+                $scope.auth = data.data;
             } else {
                 Services.ionicpopup('提示信息', data.msg);
             }
         });
 
-        $scope.authClick = function(status,url){
-            if(status == 0){//未认证
-                $state.go(url);
+        //获取用户实名信息(淘宝需要)
+ /*       Services.getData("user/getUserMsg", {}).success(function(data){
+            if (data.code == 0) {
+                console.log(data.data);
+            } else {
+                Services.ionicpopup('提示信息', data.msg);
             }
-        }
+        });*/
+        //社保。淘宝，学信认证
+        $scope.authFun = function(flag){
+            var url={
+                'social':'social/getSSUrl',
+                'taobao':'taobao/TaoBaoIdentify',
+                'xuexin':'xuexin/getXXUrl'
+            };
+            if($scope.auth.identityStatus == 1){
+                Services.getData(url[flag], {}).success(function(data){
+                    if (data.code == 0) {
+                        window.location.href = data.data.url;
+                    } else {
+                        Services.ionicpopup('提示信息', data.msg);
+                    }
+                });
+            }else{
+                Services.ionicpopup('提示信息', "请先进行身份认证");
+            }
+
+        };
 
     }])
     //身份认证
     .controller('IdcardCtrl', ['$scope','$ionicActionSheet','$state','Services','$ionicLoading', function($scope,$ionicActionSheet,$state,Services,$ionicLoading){
         console.log("IdcardCtrl");
+        $scope.selectBank = {};//当前选中的开户行
+        //查询开户行
+        Services.getData("user/getbank",{}).success(function(data){
+            if(data.code == 0){
+                $scope.bankAll = data.data.list;
+            }
+        });
         $scope.imgarrs = ["","",""];
         $scope.imgsrcs = ["img/photo.png","img/photo.png","img/photo.png"];
         $scope.show = function(index) {//上传图片
-            /*wx.ready(function(){
+            wx.ready(function(){
                 wx.chooseImage({
                     count: 1, // 默认9
                     sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -78,19 +84,31 @@ angular.module('authenticate.controllers', [])
                         });
                     }
                 });
-            });*/
+            });
         };
-        $scope.params = {};
+
+        $scope.params = {
+            imgIdnoBef:'1237378768e7q8e7r8qwesafdasdfasdfaxss111',
+            imgIdnoAft:'1237378768e7q8e7r8qwesafdasdfasdfaxss111',
+            imgIdnoHand:'1237378768e7q8e7r8qwesafdasdfasdfaxss111',
+        };
         //提交信息
         $scope.submit = function(){
+            if($scope.selectBank.bank){
+                $scope.params.bankId = $scope.selectBank.bank.split(',')[0];
+                $scope.params.bankName = $scope.selectBank.bank.split(',')[1];
+            }else{
+                $scope.params.bankId = $scope.bankAll[0].id;
+                $scope.params.bankName = $scope.bankAll[0].bankName;
+            }
+
+            console.log($scope.params);
             //获取用户信息
-            Services.getData("A001", $scope.params).success(function(data) {
-                $ionicLoading.hide();
-                console.log($scope.params);
-                if (data.respHead.respCode == "000000") {
+            Services.getData("userIdentity/IdCheck", $scope.params).success(function(data) {
+                if (data.code == 0) {
                     $state.go("bankmange");
                 } else {
-                    Services.ionicpopup('提示信息', data.respHead.respMsg);
+                    Services.ionicpopup('提示信息', data.msg);
                 }
             });
         };
@@ -135,9 +153,7 @@ angular.module('authenticate.controllers', [])
         //提交信息
         $scope.submit = function(){
             //获取用户信息
-            Services.ionicLoading();
             Services.getData("user/addemergencycontact", $scope.params).success(function(data) {
-                $ionicLoading.hide();
                 if (data.code == 0) {
                     $state.go("mobileservice");
                 } else {
@@ -148,9 +164,15 @@ angular.module('authenticate.controllers', [])
     }])
     //芝麻信用
     .controller('ZhimaCtrl', ['$scope','$state', function($scope,$state){
-        console.log("ZhimaCtrl");
         $scope.zhimaClick = function(){
-            $state.go('zhimaok');
+            Services.getData("zhima/userForce", {}).success(function(data){
+                if (data.code == 0) {
+                    window.location.href = data.data;
+                } else {
+                    Services.ionicpopup('提示信息', data.msg);
+                }
+            });
+            //$state.go('zhimaok');
         }
     }])
     //手机运营商
@@ -163,10 +185,8 @@ angular.module('authenticate.controllers', [])
                 mobileNo: $scope.params.phone
             }
             if ($scope.params.phone) {
-                Services.ionicLoading();
-                Services.getData("A001", codeparams).success(function(data) {
-                    $ionicLoading.hide();
-                    if (data.respHead.respCode == "000000") {
+                Services.getData("corparate/getTongdunUrl", {}).success(function(data) {
+                    if (data.code == 0) {
                         $rootScope.timer(60, "#sendButton_service");
                         //Services.ionicpopup('发送成功', "验证码发送成功！");
                     } else {
@@ -180,13 +200,11 @@ angular.module('authenticate.controllers', [])
         //提交信息
         $scope.submit = function(){
             console.log($scope.params);
-            Services.ionicLoading();
-            Services.getData("A001",$scope.params).success(function(data){
-                $ionicLoading.hide();
-                if (data.respHead.respCode == "000000") {
+            Services.getData("corparate/getTongdunUrl",{}).success(function(data){
+                if (data.code == 0) {
                     $state.go('zhima');
                 }else {
-                    Services.ionicpopup('提示信息', data.respHead.respMsg);
+                    Services.ionicpopup('提示信息', data.msg);
                 }
 
             });
@@ -198,7 +216,33 @@ angular.module('authenticate.controllers', [])
     }])
     //社保认证
     .controller('SocialCtrl', ['$scope', function($scope){
-        console.log("SocialCtrl");
+        Services.getData("social/getSSUrl", {}).success(function(data){
+            if (data.code == 0) {debugger;
+                window.location.href = data.data;
+            } else {
+                Services.ionicpopup('提示信息', data.msg);
+            }
+        });
+    }])
+    //淘宝认证
+    .controller('TaobaoCtrl', ['$scope','Services', function($scope,Services){
+        Services.getData("zhima/userForce", {}).success(function(data){
+            if (data.code == 0) {
+                window.location.href = data.data;
+            } else {
+                Services.ionicpopup('提示信息', data.msg);
+            }
+        });
+    }])
+    //学信网认证
+    .controller('XuexinCtrl', ['$scope','Services', function($scope,Services){
+        Services.getData("zhima/userForce", {}).success(function(data){
+            if (data.code == 0) {
+                window.location.href = data.data;
+            } else {
+                Services.ionicpopup('提示信息', data.msg);
+            }
+        });
     }])
 
 

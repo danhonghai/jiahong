@@ -17,6 +17,7 @@
     <link href="css/ui.css" rel="stylesheet"><!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     --><!-- ionic/angularjs js -->
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/swiper/swiper-3.4.2.jquery.min.js"></script>
@@ -29,6 +30,8 @@
     <script src="js/controllers/my_controllers.js"></script>
     <script src="js/controllers/free_controllers.js"></script>
     <script src="js/services/services.js"></script>
+    <!-- 高德地图 -->
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=01e4cf4868e34e1fab6062d649b9005b&plugin=AMap.CitySearch"></script>
 </head>
 <body ng-app="starter">
 <div ui-sref="error" ng-if="stateonline" style="width: 100%; height: 44px; line-height: 44px; position: fixed; background: rgba(0,0,0,0.6); z-index: 9999; padding: 0 15px; color: #fff; font-size: 14px;">

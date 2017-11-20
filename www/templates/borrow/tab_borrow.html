@@ -3,33 +3,34 @@
         <!-- <img src="img/borrow_bg.png" alt="首页"> -->
         <div>
             <!-- <h1 class="title">嘉鸿</h1> -->
-            <div class="location"><i class="icon icon_location"></i><span>杭州</span></div>
-            <div class="borrow_center">
-                <!-- <div class="borrow_top">待还款金额</div>
-                <div class="borrow_main" style="margin-top:0.2rem">999,900</div> -->
+            <div class="location"><i class="icon icon_location"></i><span ng-bind="data.cityinfo"></span></div>
+            <div class="borrow_center" ng-switch="borrowStatus">
+                <div ng-switch-when="0">
+                    <div class="borrow_top">待还款金额</div>
+                    <div class="borrow_main" style="margin-top:0.2rem">999,900</div>
+                </div>
 
-                <div class="borrow_top">最高借款额度</div>
-                <div class="big_money"><span>15</span>万</div>
+                <div ng-switch-when="1">
+                    <div class="borrow_top">最高借款额度</div>
+                    <div class="big_money"><span>15</span>万</div>
+                </div>
 
-                <!-- <div class="borrow_main">未登录</div> -->
+                <div ng-switch-when="-3" class="borrow_main">未登录</div>
 
-                <!-- <div class="borrow_main">审核中</div> -->
+                <div ng-switch-when="2" class="borrow_main">审核中</div>
             </div>
             <div class="borrow_prompt" style="color:#ff7d2e;">可使用免息券，免息还款</div>
-            <div class="btn">
-              <!-- <button style="border-radius: 20px;" class="button button-block button-ff7d2e">立即还款</button> -->
-              <button style="border-radius: 20px;" class="button button-block button-ff7d2e" ui-sref="loan">立即借款</button>
-              <!-- <button style="border-radius: 20px;" class="button button-block button-ff7d2e">立即登录</button> -->
-              <!-- <button style="border-radius: 20px;" class="button button-block button-fffcc9">额度审核中</button> -->
+            <div class="btn" ng-switch="borrowStatus">
+              <button ng-switch-when="0" style="border-radius: 20px;" class="button button-block button-ff7d2e">立即还款</button>
+              <button ng-switch-when="1" style="border-radius: 20px;" class="button button-block button-ff7d2e" ui-sref="loan" ng-disabled="data.isLoan">立即借款</button>
+              <button ng-switch-when="-3" style="border-radius: 20px;" class="button button-block button-ff7d2e" ui-sref="login">立即登录</button>
+              <button ng-switch-when="2" style="border-radius: 20px;" class="button button-block button-fffcc9">额度审核中</button>
             </div>
-            <div class="borrow_prompt icon ion-alert-circled"><span>暂不为学生服务</span></div>
+            <div class="borrow_prompt icon ion-alert-circled"><span>暂不为学生服务{{borrowList}}</span></div>
             <div class="borrow_notivce text-center">
                 <div class="swiper-container swiper-container1">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide"><div class="notivce">尾号9808，刚刚借款10,000.00元</div></div>
-                    <div class="swiper-slide"><div class="notivce">尾号4535，刚刚借款4,000.00元</div></div>
-                    <div class="swiper-slide"><div class="notivce">尾号1354，刚刚借款12,000.00元</div></div>
-                    <div class="swiper-slide"><div class="notivce">尾号3712，刚刚借款1,000.00元</div></div>
+                    <div class="swiper-slide"><div class="notivce" ng-repeat="item in data.borrowList">尾号{{item.mobile | sphone}}，刚刚借款{{item.capital | number}}元</div></div>
                   </div>
                 </div>
             </div>

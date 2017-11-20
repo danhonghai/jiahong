@@ -5,22 +5,22 @@
             <i class="icon ion-ios-arrow-right"></i>
         </div> -->
         <div class="list my_list margin-top15">
-            <div class="item" style="border-radius: 5px; background: url(img/bg_bankcard.png) no-repeat; background-size: 100% 100%;margin: 15px 15px 0;border:none;padding-bottom:0;position:relative;" ng-repeat="bankcard in bankList">
-                <div class="row padding0">
+            <div class="item" style="border-radius: 5px; background: url(img/bg_bankcard.png) no-repeat; background-size: 100% 100%;margin: 15px 15px 0;border:none;position:relative;">
+                <div class="row">
                     <div class="col col-25 text-left">
-                        <div style="padding: 6px;background: #fff;border-radius: 100%;"><img ng-src="{{bankcard.bankIcon}}" alt=""></div>
+                        <div style="padding: 6px;background: #fff;border-radius: 100%;"><img ng-src="{{bankList.bankImg}}" onerror="javascript:this.src='img/icon_gsyh.png'" alt=""></div>
                     </div>
                     <div class="col text-left">
-                        <p style="color: #fff;margin-top:0.05rem;font-size:18px;" ng-bind="bankcard.bankName"></p>
-                        <p style="color: #fff;margin-top:5%;font-size:18px;" ng-bind="bankcard.cardNo | mcardno"></p>
+                        <p style="color: #fff;margin-top:0.05rem;font-size:18px;" ng-bind="bankList.bankName"></p>
+                        <p style="color: #fff;margin-top:5%;font-size:18px;" ng-bind="bankList.cardNo | mcardno"></p>
                     </div>
                 </div>
-                <div class="row" style="margin-top:5px;">
-                    <div class="col text-left light" ng-if="!bankcard.isdefault" ng-click="setDefault(bankcard.id)">设为默认</div>
-                    <div class="col text-right light" ng-click="delBank(bankcard.id)">删除</div>
-                </div>
-                <button class="button cff7d2e" style="position: absolute;top: 0.1rem;right: 0.1rem;min-height: 30px;line-height: 30px;"
-                ng-if="bankcard.isdefault" >默认</button>
+               <!--  <div class="row" style="margin-top:5px;">
+                   <div class="col text-left light" ng-if="!bankcard.isdefault" ng-click="setDefault(bankcard.id)">设为默认</div>
+                   <div class="col text-right light" ng-click="delBank(bankcard.id)">删除</div>
+               </div>
+               <button class="button cff7d2e" style="position: absolute;top: 0.1rem;right: 0.1rem;min-height: 30px;line-height: 30px;"
+               ng-if="bankcard.isdefault" >默认</button> -->
             </div>
         </div>
     </ion-content>

@@ -1,53 +1,16 @@
 angular.module('my.controllers', [])
   //我的
   .controller('MyCtrl', ['$scope','$ionicPopup','Services','$ionicHistory','$ionicLoading','$state', function($scope,$ionicPopup,Services,$ionicHistory,$ionicLoading,$state){
-      /*$scope.showShare = function() {
-          $scope.optionsPopup = $ionicPopup.show({
-              template: "您未登入，是否立即登入",
-              title: "温馨提示",
-              scope: $scope,
-              buttons: [{
-                  text: "返回",
-                  onTap: function(e) {
-                      $ionicHistory.goBack();
-                  }
-              }, {
-                  text: "立即登入",
-                  type: "button-stable",
-                  onTap: function(e) {
-                      $state.go('login');
-                  }
-              }]
-          });
-      };*/
-      $scope.$on('$ionicView.beforeEnter',function(){
-          if(!sessionStorage.token || sessionStorage.token == 'null'){
-              $state.go('login');
+      //已登入
+      //获取用户信息
+      Services.getData("user/repaymentFee", {}).success(function(data) {
+          if(data.code == 0){
+              $scope.data = data.data;
+              $scope.data.phone = "18758550527";
+          }else{
+              Services.ionicpopup('提示信息', data.msg);
           }
-
       });
-      if (sessionStorage.token) {
-          //已登入
-          Services.ionicLoading();
-          //获取用户信息
-          Services.getData("user/repaymentFee", {}).success(function(data) {
-              $ionicLoading.hide();
-              if(data.code == 0){
-                  $scope.data = data.data;
-                  $scope.data.phone = "18758550527";
-              }else{
-                  Services.ionicpopup('提示信息', data.msg);
-              }
-          });
-      };
-
-
-
-      // $scope.$on("$ionicView.unloaded", function() {
-      //     if ($scope.optionsPopup) {
-      //         $scope.optionsPopup.close();
-      //     }
-      // });
   }])
   //帮助中心
   .controller('HelpcenterCtrl', ['$scope','$ionicPopup','Services','$ionicLoading','$state', function($scope,$ionicPopup,Services,$ionicLoading,$state){
@@ -73,9 +36,7 @@ angular.module('my.controllers', [])
 
       //获取数据
       $scope.queryList = function(params) {
-          Services.ionicLoading();
           Services.getData("question/common", {}).success(function(data) {
-              $ionicLoading.hide();
               if (data.code == 0) {
                   $scope.data = data.data.list ? data.data.list : [];
               }else{
@@ -104,9 +65,7 @@ angular.module('my.controllers', [])
               Services.ionicpopup('提示信息', "留言不能为空");
               return false;
           }
-          Services.ionicLoading();
           Services.getData("question/myquestion", $scope.param).success(function(data) {
-              $ionicLoading.hide();
               if (data.code == 0) {
                   Services.ionicpopup('提示信息', "您的留言已提交成功感谢您的支持");
               }else{
@@ -129,9 +88,7 @@ angular.module('my.controllers', [])
 
       //查询我的消息
       $scope.queryList = function(params) {
-          Services.ionicLoading();
           Services.getData("user/sysmessage", {}).success(function(data) {
-              $ionicLoading.hide();
               if (data.code == 0) {
                  $scope.data = data.data.list ? data.data.list : [];
                   vm = $scope.data;
@@ -210,9 +167,7 @@ angular.module('my.controllers', [])
 
       //查询免息券信息
       $scope.queryList = function(type) {
-          Services.ionicLoading();
           Services.getData("ticket/myticket",{type:type}).success(function(data) {
-              $ionicLoading.hide();
               if (data.code == "0") {
                  $scope.data = data.data.list ? data.data.list : [];
                   vm = $scope.data;
@@ -271,24 +226,19 @@ angular.module('my.controllers', [])
           "text" : "已绑定",
           "color" : "#444"
       }];
-      var userInfosession = angular.fromJson(sessionStorage.userInfo);
-      var params = {
-      }
+
       //获取用户信息
-      //Services.ionicLoading();
-      Services.getData("A015", params).success(function(data) {
-          //$ionicLoading.hide();
+      Services.getData("user/pend", {}).success(function(data) {
           console.log(data);
-          //$scope.userUserInfoData = data.body;
-          $scope.userUserInfoData = {
-              headImg: '',
-              isbindBank : false
-          };
-          if($scope.userUserInfoData.isbindBank){
-              $scope.bandBank = $scope.bindBankArray[1];
-          }else{
-              $scope.bandBank = $scope.bindBankArray[0];
-          };
+          if(data.code == 0){
+            $scope.userUserInfoData = data.data;
+            if($scope.userUserInfoData.userbankStatus == 0){//未绑定
+                $scope.bandBank = $scope.bindBankArray[0];
+            }else{
+                $scope.bandBank = $scope.bindBankArray[1];
+            };
+          }
+
       });
       // 点击按钮触发，或一些其他的触发条件
       $scope.show = function() {
@@ -319,9 +269,7 @@ angular.module('my.controllers', [])
               mobile: $scope.params.mobile
           }
           if ($scope.params.phone) {
-              Services.ionicLoading();
               Services.getData("A001", codeparams).success(function(data) {
-                  $ionicLoading.hide();
                   if (data.respHead.respCode == "000000") {
                       $rootScope.timer(60, "#sendButton_mobile");
                       //Services.ionicpopup('发送成功', "验证码发送成功！");
@@ -336,9 +284,7 @@ angular.module('my.controllers', [])
       //修改手机号
       $scope.setMobile = function(){
           console.log($scope.params);
-          Services.ionicLoading();
           Services.getData("A201",$scope.params).success(function(data){
-              $ionicLoading.hide();
               if (data.respHead.respCode == "000000") {
                   $ionicPopup.show({
                       template: "提示信息",
@@ -368,9 +314,7 @@ angular.module('my.controllers', [])
       //修改密码
       $scope.updatepass = function(){
           console.log($scope.params);
-          Services.ionicLoading();
           Services.getData("A201",$scope.params).success(function(data){
-              $ionicLoading.hide();
               if (data.respHead.respCode == "000000") {
                   $ionicPopup.show({
                       template: "提示信息",
@@ -409,9 +353,7 @@ angular.module('my.controllers', [])
               tempId: tempId    //1.注册，2.忘记密登陆密码，3，忘记支付密码,
           };
           if ($scope.params.mobile) {
-              Services.ionicLoading();
               Services.getData("user/sendsms", codeparams).success(function(data) {
-                  $ionicLoading.hide();
                   if (data.code == 0) {
                       $rootScope.timer(60, "#sendButton_pass");
                       //Services.ionicpopup('发送成功', "验证码发送成功！");
@@ -425,9 +367,7 @@ angular.module('my.controllers', [])
       };
       //忘记密码
       $scope.forgetpass = function(){
-          Services.ionicLoading();
           Services.getData("user/forgetpwd",$scope.params).success(function(data){
-              $ionicLoading.hide();
               if (data.code == 0) {
                   $ionicPopup.show({
                       template: "提示信息",
@@ -460,9 +400,7 @@ angular.module('my.controllers', [])
       $scope.repassword = "";
       //修改密码
       $scope.updatepass = function(){
-          Services.ionicLoading();
           Services.getData("user/updatepwd",$scope.params).success(function(data){
-              $ionicLoading.hide();
               if (data.code == 0) {
                   $ionicPopup.show({
                       template: "提示信息",
@@ -495,19 +433,10 @@ angular.module('my.controllers', [])
       //查询银行卡信息
       $scope.queryBankList = function(){
           var params = {}
-          Services.ionicLoading();
           Services.getData("user/getmybank", params).success(function(data){
               console.log(data);
-              $ionicLoading.hide();
               if(data.code == 0){
-                  $scope.bankList = data.data.list;
-                 /* $scope.bankList = [{
-                      bankId:"1",
-                      bankIcon:"img/icon_gsyh.png",
-                      bankName:"中国工商银行",
-                      cardNo:"6212261202025854236",
-                      isdefault:true
-                  }];*/
+                  $scope.bankList = data.data.list[0];
               }
           });
       };
@@ -515,9 +444,7 @@ angular.module('my.controllers', [])
       //设为默认
       $scope.setDefault = function(id){
           var params = {"bankId":id};
-          Services.ionicLoading();
           Services.getData("A201",params).success(function(data){
-              $ionicLoading.hide();
               if (data.respHead.respCode == "000000") {
                   $ionicPopup.show({
                       template: "修改成功",
@@ -542,9 +469,7 @@ angular.module('my.controllers', [])
       //删除银行卡
       $scope.delBank = function(id){
           var params = {"bankId":id};
-          Services.ionicLoading();
           Services.getData("A201",params).success(function(data){
-              $ionicLoading.hide();
               if (data.respHead.respCode == "000000") {
                   $ionicPopup.show({
                       template: "删除成功",
@@ -578,9 +503,7 @@ angular.module('my.controllers', [])
       });
       //添加银行卡
       $scope.addCard = function(){
-          Services.ionicLoading();
           Services.getData("user/bindcard",$scope.params).success(function(data){
-              $ionicLoading.hide();
               if (data.code == 0) {
                   $ionicPopup.show({
                       template: "添加成功",
@@ -614,12 +537,9 @@ angular.module('my.controllers', [])
   //登录
   .controller('LoginCtrl', ['$scope','$state','Services','$ionicLoading', function($scope,$state,Services,$ionicLoading){
       //登录输入手机号
-      $scope.params = {};
+      $scope.params = {validLogin:true};
       $scope.loginSubmit = function(){
-          console.log($scope.params);
-          Services.ionicLoading();
           Services.getData("user/vaildtel",$scope.params).success(function(data){
-              $ionicLoading.hide();
               if (data.code == 0) {
                   $state.go('password',$scope.params);
               }else if(data.code == -1){
@@ -634,12 +554,12 @@ angular.module('my.controllers', [])
   //输入密码
   .controller('PasswordCtrl', ['$scope','$state','Services','$ionicLoading', function($scope,$state,Services,$ionicLoading){
       //登录输入密码
-      $scope.params = {};
-      $scope.params.mobile = $state.params.mobile;
+      $scope.params = {
+          mobile: $state.params.mobile,
+          validLogin : true
+      };
       $scope.login = function(){
-          Services.ionicLoading();
           Services.getData("user/login",$scope.params).success(function(data){
-              $ionicLoading.hide();
               if (data.code == 0) {
                   sessionStorage.token = angular.toJson(data.data.token);
                   $state.go('tab.my');
@@ -663,12 +583,11 @@ angular.module('my.controllers', [])
       $scope.getphoneCode = function() {
           var codeparams = {
               mobile: $scope.params.mobile,
-              tempId:1    //1.注册，2.忘记密登陆密码，3，忘记支付密码,
+              tempId:1,    //1.注册，2.忘记密登陆密码，3，忘记支付密码,
+              validLogin : true
           }
           if ($scope.params.mobile) {
-              Services.ionicLoading();
               Services.getData("user/sendsms", codeparams).success(function(data) {
-                  $ionicLoading.hide();
                   if (data.code == 0) {
                       $rootScope.timer(60, "#sendButton_reg");
                       //Services.ionicpopup('发送成功', "验证码发送成功！");
@@ -686,9 +605,7 @@ angular.module('my.controllers', [])
               Services.ionicpopup('提示信息', "请勾选协议");
               return false;
           };
-          Services.ionicLoading();
           Services.getData("user/register",$scope.params).success(function(data){
-              $ionicLoading.hide();
               if (data.code == 0) {
                   //用户信息
                   sessionStorage.token = angular.toJson(data.data.token);
@@ -741,14 +658,10 @@ angular.module('my.controllers', [])
       };
       //查询借款信息type=0 ,进行中，type=1已完成
       $scope.queryLoan = function(type){
-          Services.ionicLoading();
           Services.getData("borrow/process", {type:type}).success(function(data) {
-              $ionicLoading.hide();
               if (data.code == 0) {
                   $scope.loanData = data.data.list?data.data.list:[];
-              }else if(data.code == -3){
-                  $state.go('login');
-              } else {
+              }else {
                   Services.ionicpopup('提示信息', data.msg);
               }
           });

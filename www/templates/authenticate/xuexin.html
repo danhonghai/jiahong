@@ -1,0 +1,25 @@
+<ion-view view-title="学信网认证">
+    <ion-content class="stable-bg">
+        <form name="form">
+        <div class="list margin-top25">
+            <div class="item item-input">
+                <span class="input-label">用户名</span>
+                <input type="text" placeholder="请输入用户名">
+            </div>
+
+            <div class="item item-input">
+                <span class="input-label" style="width:25%;">密码</span>
+                <input type="password" placeholder="请输入密码" name="password" ng-model="params.password" validator="required,password">
+            </div>
+            <div class="item item-input">
+                <span class="input-label" style="width:25%;">验证码</span>
+                <input type="text" placeholder="请输入验证码" name="verifyCode" ng-model="params.verifyCode" validator="required" class="inputSpan" >
+                <button class="btn_hqyzm" ng-click="getphoneCode()" id="sendButton_reg" >获取验证码</button>
+            </div>
+        </div>
+        </form>
+    </ion-content>
+    <div class="btn_bottom">
+        <button style="border-radius: 5px;width:90%;margin:10px auto;" class="button button-block button-ff7d2e" >提交</button>
+    </div>
+</ion-view>

@@ -2,27 +2,33 @@
     <ion-content>
         <div class="auth_top text-center">
               <h4 class="light">我的额度</h4>
-              <span class="auth_limit">{{999999.99| number}}</span>
+              <span class="auth_limit">{{auth.creditMoney | number}}</span>
               <p class="cffcdae">完成更多认证将提高额度</p>
         </div>
         <div class="auth_main text-center">
             <div class="row">
-
-                <div class="col" ng-click="authClick(auth[0].status,'idcard')"><i><img ng-src="img/icon_card{{auth[0].status+1}}.png"></i><div>身份认证</div><p class={{auth[0].className}}>{{auth[0].text}}</p></div>
-                <div class="col" ng-click="authClick(auth[1].status,'idcard')"><i><img ng-src="img/icon_bank{{auth[1].status+1}}.png"></i><div>银行卡</div><p class={{auth[1].className}}>{{auth[1].text}}</p></div>
-                <div class="col" ng-click="authClick(auth[2].status,'idcard')"><i><img ng-src="img/icon_lxr{{auth[2].status+1}}.png"></i><div>紧急联系人</div><p class={{auth[2].className}}>{{auth[2].text}}</p></div>
+                <div ng-if="auth.identityStatus == 0" class="col" ui-sref="idcard"><i><img ng-src="img/icon_card1.png"></i><div>身份认证</div><p class="no_auth">未认证</p></div>
+                <div ng-if="auth.identityStatus == 1" class="col" ><i><img ng-src="img/icon_card2.png"></i><div>身份认证</div><p class="is_auth">已认证</p></div>
+                <div ng-if="auth.identityStatus == 0" class="col" ui-sref="idcard"><i><img ng-src="img/icon_bank1.png"></i><div>银行卡</div><p class="no_auth">未认证</p></div>
+                <div ng-if="auth.identityStatus == 1" class="col" ><i><img ng-src="img/icon_bank2.png"></i><div>银行卡</div><p class="is_auth">已认证</p></div>
+                <div ng-if="auth.contactStatus == 0" class="col" ui-sref="idcard"><i><img ng-src="img/icon_lxr1.png"></i><div>紧急联系人</div><p class="no_auth">未认证</p></div>
+                <div ng-if="auth.contactStatus == 1" class="col" ><i><img ng-src="img/icon_lxr2.png"></i><div>紧急联系人</div><p class="is_auth">已认证</p></div>
             </div>
             <div class="row">
-                <div class="col" ng-click="authClick(auth[3].status,'idcard')"><i><img ng-src="img/icon_zmxy{{auth[3].status+1}}.png"></i><div>芝麻授权</div><p class={{auth[3].className}}>{{auth[3].text}}</p></div>
-                <div class="col" ng-click="authClick(auth[4].status,'idcard')"><i><img ng-src="img/icon_yys{{auth[4].status+1}}.png"></i><div>手机运营商</div><p class={{auth[4].className}}>{{auth[4].text}}</p></div>
-                <div class="col" ng-click="authClick(auth[5].status,'social')"><i><img ng-src="img/icon_sb{{auth[5].status+1}}.png"></i><div>社保认证</div><p class={{auth[5].className}}>{{auth[5].text}}</p></div>
+                <div ng-if="auth.zhimaDivide == null" class="col" ui-sref="idcard"><i><img ng-src="img/icon_zmxy1.png"></i><div>芝麻授权</div><p class="no_auth">未认证</p></div>
+                <div ng-if="auth.zhimaDivide != null" class="col" ><i><img ng-src="img/icon_zmxy2.png"></i><div>芝麻授权</div><p class="is_auth">已认证</p></div>
+                <div ng-if="auth.telOperator == 0" class="col" ui-sref="idcard"><i><img ng-src="img/icon_yys1.png"></i><div>手机运营商</div><p class="no_auth">未认证</p></div>
+                <div ng-if="auth.telOperator == 1" class="col" ><i><img ng-src="img/icon_yys2.png"></i><div>手机运营商</div><p class="is_auth">已认证</p></div>
+                <div ng-if="auth.socialStatus == 0" class="col" ng-click="authFun('social')"><i><img ng-src="img/icon_sb1.png"></i><div>社保认证</div><p class="no_auth">未认证</p></div>
+                <div ng-if="auth.socialStatus == 1" class="col" ><i><img ng-src="img/icon_sb2.png"></i><div>社保认证</div><p class="is_auth">已认证</p></div>
                 <!-- <div class="col" ui-sref="carinfo"><i><img src="img/icon_car1.png"></i><div>车辆信息</div><p class="no_auth">未认证</p></div> -->
             </div>
-           <!--  <div class="row">
-               <div class="col col-33" style="border-right:1px solid #dbdbdb;border-bottom:1px solid #dbdbdb;" ui-sref="social">
-                   <i><img src="img/icon_sb2.png"></i><div>社保认证</div><p class="is_auth">已认证</p>
-               </div>
-           </div> -->
+            <div class="row">
+                <div ng-if="auth.taobaoStatus == 0" class="col col-33" ng-click="authFun('taobao')"><i><img ng-src="img/icon_taobao1.png"></i><div>淘宝认证</div><p class="no_auth">未认证</p></div>
+                <div ng-if="auth.taobaoStatus == 1" class="col col-33" ><i><img ng-src="img/icon_taobao2.png"></i><div>淘宝认证</div><p class="is_auth">已认证</p></div>
+                <div ng-if="auth.xuexinStatus == 0" class="col col-33" ng-click="authFun('xuexin')" style="border-right:1px solid #dbdbdb;    margin-left: 1px;"><i><img ng-src="img/icon_xx1.png"></i><div>学信认证</div><p class="no_auth">未认证</p></div>
+                <div ng-if="auth.xuexinStatus == 1" class="col col-33" ><i><img ng-src="img/icon_xx2.png" style="border-right:1px solid #dbdbdb;    margin-left: 1px;"></i><div>学信认证</div><p class="is_auth">已认证</p></div>
+           </div>
         </div>
     </ion-content>
 </ion-view>

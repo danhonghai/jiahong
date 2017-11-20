@@ -35,8 +35,12 @@ angular.module('services', [])
             },
             //主要数据接口
             getData:function(url,params){
+                if(!sessionStorage.token && !params.validLogin){//validLogin为true不判断用户是否登录.
+                    $state.go('login');
+                };
                 var  d = $q.defer();
                 var promise = d.promise;
+                this.ionicLoading();
                 $http({
                     method: 'POST',
                     headers: {token: sessionStorage.token},
@@ -44,8 +48,10 @@ angular.module('services', [])
                     data: angular.toJson(params),
                     dataType:"json",
                 }).then(function successCallback(response) {
+                        $ionicLoading.hide();
                         d.resolve(response.data);
                     }, function errorCallback(error) {
+                        $ionicLoading.hide();
                         d.reject(error);
                 });
                 promise.success = function(fn) {

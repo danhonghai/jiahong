@@ -15,6 +15,14 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
             return mphone
         };
     })
+    //手机号只显示后四位
+    .filter('sphone', function() {
+        return function(value) {
+            if (!value) return '';
+            var sphone = value.substr(7);
+            return sphone
+        };
+    })
     //银行卡号过滤器，隐藏中间12位
     .filter('mcardno', function() {
         return function(value) {
@@ -66,9 +74,54 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
         online.onLineHandler(function() {})
         online.offLineHandler(function() {
             $rootScope.stateonline = true;
-        })
+        });
+        wx.config({
+          debug: false,
+          appId:"",
+          noncestr:"",
+          signature:"",
+          timestamp:"",
+          jsApiList: [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'onMenuShareQZone',
+            'hideMenuItems',
+            'showMenuItems',
+            'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem',
+            'translateVoice',
+            'startRecord',
+            'stopRecord',
+            'onVoiceRecordEnd',
+            'playVoice',
+            'onVoicePlayEnd',
+            'pauseVoice',
+            'stopVoice',
+            'uploadVoice',
+            'downloadVoice',
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'downloadImage',
+            'getNetworkType',
+            'openLocation',
+            'getLocation',
+            'hideOptionMenu',
+            'showOptionMenu',
+            'closeWindow',
+            'scanQRCode',
+            'chooseWXPay',
+            'openProductSpecificView',
+            'addCard',
+            'chooseCard',
+            'openCard'
+          ]
+        });
     })
-    .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider,$httpProvider) {
         $ionicConfigProvider.platform.ios.tabs.style('standard');
         $ionicConfigProvider.platform.ios.tabs.position('bottom');
         $ionicConfigProvider.platform.android.tabs.style('standard');
@@ -83,6 +136,7 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
         $ionicConfigProvider.platform.ios.templates.maxPrefetch(5);
         $ionicConfigProvider.platform.android.templates.maxPrefetch(5);
         $ionicConfigProvider.scrolling.jsScrolling(true);
+        $httpProvider.defaults.cache = false;
         //ionic路由
         $stateProvider
             .state('tab', {
@@ -164,6 +218,16 @@ angular.module('starter', ['ionic', 'borrow.controllers', 'authenticate.controll
                 url: '/social',
                 templateUrl: 'templates/authenticate/social.html',
                 controller: 'SocialCtrl'
+            })
+            .state('taobao', {//淘宝
+                url: '/taobao',
+                templateUrl: 'templates/authenticate/taobao.html',
+                controller: 'TaobaoCtrl'
+            })
+            .state('xuexin', {//学信
+                url: '/xuexin',
+                templateUrl: 'templates/authenticate/xuexin.html',
+                controller: 'XuexinCtrl'
             })
             .state('tab.my',{//我的
               url:'/my',
